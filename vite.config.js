@@ -13,7 +13,12 @@ export default defineConfig({
   },
   preview: {
     port: process.env.PORT || 5000,
-    host: true
+    host: true,
+    allowedHosts: [
+      'nuriya-studio-production.up.railway.app',
+      '.railway.app',
+      '.up.railway.app'
+    ]
   },
   build: {
     outDir: 'dist',
