@@ -1,0 +1,19 @@
+{
+  "name": "nuriya-studio",
+  "version": "1.0.0",
+  "description": "Nūriya Studio - A creative studio building thoughtful digital and interactive experiences",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "start": "vite preview --host"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+

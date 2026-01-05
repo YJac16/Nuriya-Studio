@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Circular background -->
+  <circle cx="50" cy="50" r="50" fill="#f5f1e8"/>
+  
+  <!-- Outer circular frame (double ring with breaks) -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#3d2f1f" stroke-width="2.5" stroke-dasharray="270 30" stroke-dashoffset="15"/>
+  <circle cx="50" cy="50" r="41" fill="none" stroke="#3d2f1f" stroke-width="2.5" stroke-dasharray="255 30" stroke-dashoffset="15"/>
+  
+  <!-- Stylized N in center (simplified for favicon clarity) -->
+  <path d="M 32 68 Q 35 50, 50 28 Q 65 50, 68 68" stroke="#3d2f1f" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 32 68 Q 50 48, 50 28" stroke="#3d2f1f" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
