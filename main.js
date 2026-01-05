@@ -10,7 +10,7 @@ const navLinks = [
 // External URLs (to be configured in production)
 const EXTERNAL_URLS = {
   athariq: 'https://athariq-production.up.railway.app/',
-  founder: 'https://yaseenjacobs.com' // Update with actual URL
+  founder: 'https://yaseen-website-production.up.railway.app/'
 };
 
 // Initialize app
