@@ -247,6 +247,16 @@ button:active,
   text-align: center;
 }
 
+.about-slogan {
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-top: -0.5rem;
+  margin-bottom: 0;
+}
+
 .founder-image-container,
 .athariq-logo-container {
   margin-bottom: 2rem;

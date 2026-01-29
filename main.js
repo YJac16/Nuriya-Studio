@@ -1,6 +1,7 @@
 // Navigation configuration
 const navLinks = [
   { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
   { path: '/work', label: 'Work' },
   { path: '/athariq', label: 'Āthariq' },
   { path: '/founder', label: 'Founder' },
@@ -112,6 +113,9 @@ function handleRouting() {
   switch (path) {
     case '/':
       pageModule = import('./pages/home.js');
+      break;
+    case '/about':
+      pageModule = import('./pages/about.js');
       break;
     case '/work':
       pageModule = import('./pages/work.js');
