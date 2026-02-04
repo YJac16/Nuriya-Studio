@@ -3,6 +3,7 @@ const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/work', label: 'Work' },
+  { path: '/videos', label: 'Videos' },
   { path: '/athariq', label: 'Āthariq' },
   { path: '/founder', label: 'Founder' },
   { path: '/contact', label: 'Contact' }
@@ -119,6 +120,9 @@ function handleRouting() {
       break;
     case '/work':
       pageModule = import('./pages/work.js');
+      break;
+    case '/videos':
+      pageModule = import('./pages/videos.js');
       break;
     case '/athariq':
       pageModule = import('./pages/athariq.js');
