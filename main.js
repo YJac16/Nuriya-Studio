@@ -3,7 +3,7 @@ const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/work', label: 'Work' },
-  { path: '/videos', label: 'Videos' },
+  { path: '/videos', label: 'Little Light Studios' },
   { path: '/athariq', label: 'Āthariq' },
   { path: '/founder', label: 'Founder' },
   { path: '/contact', label: 'Contact' }
