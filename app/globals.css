@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fafaf9;
+  --bg-elevated: #ffffff;
+  --fg: #0a0a0a;
+  --fg-muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #0f766e;
+  --accent-fg: #ffffff;
+  --hero-glow: radial-gradient(
+      60% 50% at 15% 10%,
+      rgba(15, 118, 110, 0.12),
+      transparent 70%
+    ),
+    radial-gradient(40% 40% at 90% 20%, rgba(10, 10, 10, 0.04), transparent 70%),
+    linear-gradient(180deg, #fafaf9 0%, #f5f5f4 100%);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --bg-elevated: #141414;
+  --fg: #f5f5f4;
+  --fg-muted: #a8a29e;
+  --border: #292524;
+  --accent: #2dd4bf;
+  --accent-fg: #042f2e;
+  --hero-glow: radial-gradient(
+      55% 45% at 20% 15%,
+      rgba(45, 212, 191, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(35% 35% at 85% 25%, rgba(255, 255, 255, 0.04), transparent 70%),
+    linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+}
+
+@layer utilities {
+  .bg-hero-glow {
+    background-image: var(--hero-glow);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

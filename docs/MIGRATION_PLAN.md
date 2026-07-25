@@ -1,9 +1,13 @@
 # Nuriya Studio — Full Audit & Migration Plan
 
-**Status:** Awaiting approval (no product implementation until signed off)  
-**Branch:** `feature/nuriya-studio-rebrand`  
-**Stack decision:** Next.js App Router + TypeScript + Sanity CMS  
+**Status:** Approved — Phase 1 in progress  
+**Branch:** `cursor/nuriya-studio-rebrand-9957`  
+**Stack decision:** Next.js App Router + TypeScript + Sanity CMS + Supabase (booking)  
 **Positioning:** A software studio building digital products that help businesses grow.
+
+**Approval notes (2026-07-25):**
+- WhatsApp number to be added later via env (`NEXT_PUBLIC_WHATSAPP_NUMBER`).
+- Booking: **own system on Supabase** (not Calendly). Calendly references removed from target architecture.
 
 ---
 
@@ -109,13 +113,13 @@ The site is a thoughtful brand hub for a creative/production identity. It is **n
 | `/blog/[slug]` | Article |
 | `/resources` | Guides, checklists, downloads (CMS-ready) |
 | `/contact` | Contact form + WhatsApp + quote |
-| `/book` | Book consultation (Calendly-ready) |
+| `/book` | Book consultation (Supabase-backed) |
 | `/brands` | Our Brands (Athariq, Little Light) — restrained |
 
 ### 2.2 Utility / system routes
 
 - `/studio` — Sanity Studio (protected / noindex)
-- `/api/contact`, `/api/quote` — form handlers
+- `/api/contact`, `/api/quote`, `/api/book` — form/booking handlers (Supabase + Resend)
 - `/robots.txt`, `/sitemap.xml` — generated
 - `/privacy`, `/terms` — legal
 
@@ -134,11 +138,10 @@ The site is a thoughtful brand hub for a creative/production identity. It is **n
 
 ### 2.4 Lead CTAs (every page)
 
-- Book Consultation
+- Book Consultation → owned booking flow backed by Supabase
 - Request Quote
-- WhatsApp
+- WhatsApp (env-gated until number provided)
 - Contact form (where relevant)
-- Calendly slot (env-gated; hidden until URL configured)
 
 ---
 
@@ -254,8 +257,8 @@ WCAG 2.2 AA targets: contrast, focus rings, skip link, landmark regions, labelle
 
 ### 5.3 Lead gen
 
-- `ContactForm`, `QuoteForm`, `BookConsultation`
-- `WhatsAppButton`, `CalendlyEmbed` (renders only if `NEXT_PUBLIC_CALENDLY_URL` set)
+- `ContactForm`, `QuoteForm`, `BookConsultation`, `BookingForm` (Supabase)
+- `WhatsAppButton` (renders only if `NEXT_PUBLIC_WHATSAPP_NUMBER` set)
 
 ### 5.4 Content
 
@@ -403,7 +406,7 @@ Forms → Resend (or equivalent) to `hello@nuriyastudio.com` with spam honeypot 
 | `testimonial` | quote, author, role, company, logo?, featured |
 | `faq` | question, answer, category, order |
 | `teamMember` | name, role, bio, image, links |
-| `siteSettings` | singleton: nav CTAs, WhatsApp number, Calendly URL, socials, brands[] |
+| `siteSettings` | singleton: nav CTAs, WhatsApp number, socials, brands[] |
 | `product` | title, slug, status (`comingSoon`/`live`), summary, body |
 | `resource` | title, slug, type, body/file |
 | `page` | optional flexible pages if needed later |
@@ -496,8 +499,7 @@ Linked from About + Footer only — never compete with primary commercial CTA.
 - Services index + 5 service pages (prices as specified)
 - Pricing (packages + monthly)
 - Contact + Quote API (Resend)
-- Book page (Calendly-ready)
-- WhatsApp CTA
+- Book page (Supabase booking schema + form; WhatsApp env-gated)
 - Quality gate + commit
 
 ### Phase 3 — CMS + proof
@@ -558,8 +560,10 @@ restartPolicyType = "ON_FAILURE"
 
 - `NODE_ENV`
 - `NEXT_PUBLIC_SITE_URL`
-- `NEXT_PUBLIC_WHATSAPP_NUMBER`
-- `NEXT_PUBLIC_CALENDLY_URL` (optional)
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` (optional until provided)
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
 - `RESEND_API_KEY`
 - `CONTACT_TO_EMAIL`
 - `NEXT_PUBLIC_SANITY_PROJECT_ID`
@@ -637,10 +641,17 @@ Confirm or override defaults:
 - [x] Sanity CMS
 - [x] Resend for forms
 - [x] Teal accent, light-first + dark mode
-- [x] Branch `feature/nuriya-studio-rebrand`
-- [ ] WhatsApp number to use (provide when known; placeholder env until then)
-- [ ] Calendly URL (optional; feature-flagged)
+- [x] Branch `cursor/nuriya-studio-rebrand-9957`
+- [x] Booking: own Supabase system (not Calendly)
+- [ ] WhatsApp number (env later when ready)
 
 ---
 
-*End of plan — implementation starts only after approval.*
+## 20. Implementation log
+
+- **2026-07-25 — Plan approved.** WhatsApp number deferred. Booking confirmed as owned Supabase system (not Calendly).
+- **Phase 1 in progress:** Next.js foundation, design system, shell, Railway hardening, route stubs.
+
+---
+
+*Plan approved. Implementation proceeds phase by phase with quality gates before each commit.*
