@@ -1,4 +1,5 @@
 import { faqs as fallbackFaqs } from "@/lib/content/faqs";
+import { fallbackResources } from "@/lib/content/resources";
 import { testimonials as fallbackTestimonials } from "@/lib/content/testimonials";
 import { sanityFetch } from "@/lib/sanity/client";
 import {
@@ -9,12 +10,17 @@ import {
   projectsQuery,
   projectBySlugQuery,
   projectSlugsQuery,
+  resourcesQuery,
+  resourceBySlugQuery,
+  resourceSlugsQuery,
   siteSettingsQuery,
   teamMembersQuery,
   testimonialsQuery,
 } from "@/lib/sanity/queries";
 import type {
   CmsFaq,
+  CmsResourceDetail,
+  CmsResourceListItem,
   CmsTestimonial,
   PostDetail,
   PostListItem,
@@ -89,4 +95,44 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
   return sanityFetch<SiteSettings>({ query: siteSettingsQuery, tags: ["siteSettings"] });
+}
+
+export async function getResources(): Promise<CmsResourceListItem[]> {
+  const cms = await sanityFetch<CmsResourceListItem[]>({
+    query: resourcesQuery,
+    tags: ["resource"],
+  });
+  if (cms && cms.length > 0) return cms;
+  return fallbackResources.map((item, index) => ({
+    _id: `fallback-resource-${index}`,
+    title: item.title,
+    slug: item.slug,
+    type: item.type,
+    summary: item.summary,
+  }));
+}
+
+export async function getResource(slug: string): Promise<CmsResourceDetail | null> {
+  const cms = await sanityFetch<CmsResourceDetail>({
+    query: resourceBySlugQuery,
+    params: { slug },
+    tags: ["resource", `resource:${slug}`],
+  });
+  if (cms) return cms;
+
+  const fallback = fallbackResources.find((item) => item.slug === slug);
+  if (!fallback) return null;
+  return {
+    _id: `fallback-resource-${fallback.slug}`,
+    title: fallback.title,
+    slug: fallback.slug,
+    type: fallback.type,
+    summary: fallback.summary,
+  };
+}
+
+export async function getResourceSlugs(): Promise<string[]> {
+  const cms = await sanityFetch<string[]>({ query: resourceSlugsQuery, tags: ["resource"] });
+  if (cms && cms.length > 0) return cms;
+  return fallbackResources.map((item) => item.slug);
 }

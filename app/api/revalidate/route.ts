@@ -21,9 +21,15 @@ export async function POST(request: NextRequest) {
       revalidateTag(`${type}:${body.slug.current}`);
     }
   } else {
-    ["project", "post", "testimonial", "faq", "teamMember", "siteSettings"].forEach((tag) =>
-      revalidateTag(tag),
-    );
+    [
+      "project",
+      "post",
+      "testimonial",
+      "faq",
+      "teamMember",
+      "siteSettings",
+      "resource",
+    ].forEach((tag) => revalidateTag(tag));
   }
 
   return NextResponse.json({ revalidated: true, now: Date.now() });

@@ -652,7 +652,8 @@ Confirm or override defaults:
 - **2026-07-25 — Plan approved.** WhatsApp number deferred. Booking confirmed as owned Supabase system (not Calendly).
 - **Phase 1 complete:** Next.js foundation, design system, shell, Railway hardening, route stubs.
 - **Phase 2 complete:** Commercial core — services, pricing, forms (Resend), Supabase booking.
-- **Phase 3 in progress:** Sanity CMS — portfolio, blog, testimonials, FAQs, team, studio.
+- **Phase 3 complete:** Sanity CMS — portfolio, blog, testimonials, FAQs, team, studio.
+- **Phase 4 in progress:** Solutions, product waitlists, resources, legal polish.
 
 ---
 

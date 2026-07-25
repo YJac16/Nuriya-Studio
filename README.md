@@ -49,6 +49,11 @@ Booking uses an owned Supabase flow (not Calendly).
 3. Optional: set `SANITY_API_READ_TOKEN` and webhook to `/api/revalidate?secret=...`.
 4. Until Sanity is connected, FAQ/static fallbacks keep commercial pages working.
 
+### Phase 4 extras
+
+- Product waitlist: run `supabase/migrations/002_product_waitlist.sql` (or rely on Resend-only capture).
+- Resources can be expanded in Sanity (`resource` documents) or use the static scaffold.
+
 ## Deployment (Railway)
 
 - Build: `npm run build`

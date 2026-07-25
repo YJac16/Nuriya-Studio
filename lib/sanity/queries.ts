@@ -104,3 +104,28 @@ export const siteSettingsQuery = groq`
     }
   }
 `;
+
+export const resourcesQuery = groq`
+  *[_type == "resource"] | order(title asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    type,
+    summary,
+    fileUrl
+  }
+`;
+
+export const resourceBySlugQuery = groq`
+  *[_type == "resource" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    type,
+    summary,
+    body,
+    fileUrl
+  }
+`;
+
+export const resourceSlugsQuery = groq`*[_type == "resource" && defined(slug.current)].slug.current`;

@@ -76,3 +76,16 @@ export type SiteSettings = {
     logo?: SanityImage;
   }[];
 };
+
+export type CmsResourceListItem = {
+  _id: string;
+  title: string;
+  slug: string;
+  type?: string;
+  summary?: string;
+  fileUrl?: string;
+};
+
+export type CmsResourceDetail = CmsResourceListItem & {
+  body?: PortableTextBlock[];
+};

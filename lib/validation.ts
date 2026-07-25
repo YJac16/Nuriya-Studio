@@ -30,6 +30,17 @@ export const bookingSchema = z.object({
   website: z.string().max(0).optional(), // honeypot
 });
 
+export const waitlistSchema = z.object({
+  email: z.string().trim().email().max(200),
+  name: z.string().trim().max(100).optional().or(z.literal("")),
+  company: z.string().trim().max(120).optional().or(z.literal("")),
+  productSlug: z.string().trim().min(2).max(120),
+  productName: z.string().trim().min(2).max(120),
+  notes: z.string().trim().max(1000).optional().or(z.literal("")),
+  website: z.string().max(0).optional(), // honeypot
+});
+
 export type ContactInput = z.infer<typeof contactSchema>;
 export type QuoteInput = z.infer<typeof quoteSchema>;
 export type BookingInput = z.infer<typeof bookingSchema>;
+export type WaitlistInput = z.infer<typeof waitlistSchema>;

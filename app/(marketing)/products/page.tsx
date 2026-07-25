@@ -15,12 +15,15 @@ export default function ProductsPage() {
     <>
       <PageIntro
         title="Products"
-        description="Software products designed for recurring value — starting with transport, booking, invoicing, and automation."
+        description="Software products designed for recurring value. Join a waitlist for early access, or ask us to build a custom system in the same domain today."
       />
       <Container className="pb-20">
         <ProductGrid />
       </Container>
-      <CtaBand />
+      <CtaBand
+        title="Need this sooner as a custom build?"
+        description="Many products start as client systems. We can scope a tailored version while the platform matures."
+      />
     </>
   );
 }
