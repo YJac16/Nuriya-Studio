@@ -3,9 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PortableBody } from "@/components/content/portable-text";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Container } from "@/components/ui/container";
 import { getPost, getPostSlugs } from "@/lib/content/data";
 import { urlForImage } from "@/lib/sanity/image";
+import { absoluteUrl, articleJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,9 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
+  const coverUrl = post.cover ? urlForImage(post.cover)?.width(1200).height(630).url() : undefined;
   return {
     title: post.title,
     description: post.excerpt || post.title,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt || post.title,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      images: coverUrl ? [{ url: coverUrl }] : undefined,
+    },
   };
 }
 
@@ -40,6 +51,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={articleJsonLd({
+          title: post.title,
+          description: post.excerpt,
+          slug: post.slug,
+          publishedAt: post.publishedAt,
+          author: post.author,
+          image: coverUrl || undefined,
+        })}
+      />
       <article>
         <Container className="py-16 sm:py-20">
           <p className="font-mono text-xs tracking-wide text-accent uppercase">Blog</p>

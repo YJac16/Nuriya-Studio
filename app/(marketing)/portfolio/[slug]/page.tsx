@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import { PortableBody } from "@/components/content/portable-text";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { PageIntro } from "@/components/marketing/page-intro";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { WhatsAppButton } from "@/components/forms/whatsapp-button";
 import { getProject, getProjectSlugs } from "@/lib/content/data";
 import { urlForImage } from "@/lib/sanity/image";
+import { absoluteUrl, creativeWorkJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,9 +23,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) return {};
+  const cover = project.gallery?.[0]
+    ? urlForImage(project.gallery[0])?.width(1200).height(630).url()
+    : undefined;
   return {
     title: project.title,
     description: project.overview,
+    alternates: { canonical: `/portfolio/${project.slug}` },
+    openGraph: {
+      title: project.title,
+      description: project.overview,
+      url: absoluteUrl(`/portfolio/${project.slug}`),
+      images: cover ? [{ url: cover }] : undefined,
+    },
   };
 }
 
@@ -31,9 +43,20 @@ export default async function PortfolioDetailPage({ params }: Props) {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) notFound();
+  const coverUrl = project.gallery?.[0]
+    ? urlForImage(project.gallery[0])?.width(1200).height(800).url()
+    : undefined;
 
   return (
     <>
+      <JsonLd
+        data={creativeWorkJsonLd({
+          title: project.title,
+          description: project.overview,
+          slug: project.slug,
+          image: coverUrl,
+        })}
+      />
       <PageIntro title={project.title} description={project.overview} />
       <Container className="space-y-12 py-16">
         <div className="flex flex-wrap gap-4 font-mono text-xs tracking-wide text-fg-muted uppercase">

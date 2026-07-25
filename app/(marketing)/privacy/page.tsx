@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Privacy",
   description: "Privacy policy for Nuriya Studio.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -23,10 +24,14 @@ export default function PrivacyPage() {
             waitlist, we collect the details you submit — typically name, email, phone,
             company, and message content.
           </p>
+        </section>
+        <section className="space-y-3">
+          <h2 className="font-display text-2xl text-fg">Cookies & analytics</h2>
           <p>
-            If analytics tools are enabled later, we may also collect aggregated usage data
-            such as pages visited and approximate location. Cookie consent will be shown
-            before non-essential tracking is activated.
+            Essential cookies keep the site working (for example theme preference). Optional
+            analytics cookies — Google Analytics, Microsoft Clarity, and Meta Pixel when
+            configured — load only after you accept the cookie banner. You can reject
+            optional cookies and continue using the site.
           </p>
         </section>
         <section className="space-y-3">
@@ -34,14 +39,14 @@ export default function PrivacyPage() {
           <p>
             We use enquiry data to respond to you, prepare proposals, deliver services, and
             improve our products. Waitlist emails are used for product updates related to
-            the product you selected.
+            the product you selected. Analytics data helps us understand aggregated usage.
           </p>
         </section>
         <section className="space-y-3">
           <h2 className="font-display text-2xl text-fg">Sharing</h2>
           <p>
-            We use processors such as hosting, email, CMS, and database providers to operate
-            this site. We do not sell personal information.
+            We use processors such as hosting, email, CMS, analytics, and database providers
+            to operate this site. We do not sell personal information.
           </p>
         </section>
         <section className="space-y-3">

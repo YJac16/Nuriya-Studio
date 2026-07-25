@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/marketing/hero";
 import { Section, SectionHeading } from "@/components/marketing/section";
 import { ServiceGrid } from "@/components/marketing/service-grid";
@@ -8,8 +9,17 @@ import { TestimonialList } from "@/components/marketing/testimonial-list";
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { ProjectCard } from "@/components/content/project-card";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { getFaqs, getProjects, getTestimonials } from "@/lib/content/data";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
+import { faqJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: { absolute: SITE_NAME },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const [faqs, testimonials, projects] = await Promise.all([
@@ -22,6 +32,7 @@ export default async function HomePage() {
 
   return (
     <>
+      {faqs.length ? <JsonLd data={faqJsonLd(faqs)} /> : null}
       <Hero />
 
       <Section id="services">

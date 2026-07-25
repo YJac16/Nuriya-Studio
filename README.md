@@ -54,6 +54,13 @@ Booking uses an owned Supabase flow (not Calendly).
 - Product waitlist: run `supabase/migrations/002_product_waitlist.sql` (or rely on Resend-only capture).
 - Resources can be expanded in Sanity (`resource` documents) or use the static scaffold.
 
+### Phase 5 — SEO & analytics
+
+- Sitemap: `/sitemap.xml` · Robots: `/robots.txt` (blocks `/studio` and `/api`)
+- Set `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_ID`, optional `NEXT_PUBLIC_META_PIXEL_ID`
+- Analytics scripts load only after cookie consent is accepted
+- Submit sitemap in Google Search Console after production deploy
+
 ## Deployment (Railway)
 
 - Build: `npm run build`

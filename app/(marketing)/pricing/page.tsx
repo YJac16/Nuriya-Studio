@@ -4,13 +4,16 @@ import { OneTimePricing, MonthlyPricing } from "@/components/marketing/pricing-t
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { Section, SectionHeading } from "@/components/marketing/section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Container } from "@/components/ui/container";
 import { getFaqs } from "@/lib/content/data";
+import { faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Transparent packages from R2,499 and monthly plans from R299 for websites, booking systems, and custom software.",
+  alternates: { canonical: "/pricing" },
 };
 
 export default async function PricingPage() {
@@ -18,6 +21,7 @@ export default async function PricingPage() {
 
   return (
     <>
+      {faqs.length ? <JsonLd data={faqJsonLd(faqs)} /> : null}
       <PageIntro
         title="Pricing"
         description="Transparent packages and monthly plans. Enterprise and custom software are quoted after discovery."

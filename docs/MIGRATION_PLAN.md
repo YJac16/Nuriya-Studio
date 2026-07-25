@@ -653,7 +653,8 @@ Confirm or override defaults:
 - **Phase 1 complete:** Next.js foundation, design system, shell, Railway hardening, route stubs.
 - **Phase 2 complete:** Commercial core — services, pricing, forms (Resend), Supabase booking.
 - **Phase 3 complete:** Sanity CMS — portfolio, blog, testimonials, FAQs, team, studio.
-- **Phase 4 in progress:** Solutions, product waitlists, resources, legal polish.
+- **Phase 4 complete:** Solutions, product waitlists, resources, legal polish.
+- **Phase 5 in progress:** SEO, analytics consent, performance polish.
 
 ---
 

@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import { getServiceBySlug, services } from "@/lib/content/services";
 import { PageIntro } from "@/components/marketing/page-intro";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { WhatsAppButton } from "@/components/forms/whatsapp-button";
+import { absoluteUrl, serviceJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,6 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.name,
     description: service.summary,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: service.name,
+      description: service.summary,
+      url: absoluteUrl(`/services/${service.slug}`),
+    },
   };
 }
 
@@ -34,6 +42,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service)} />
       <PageIntro title={service.name} description={service.summary} />
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_0.8fr]">
         <div>

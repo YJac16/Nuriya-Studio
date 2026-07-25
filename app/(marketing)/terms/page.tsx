@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Terms",
   description: "Terms of use for the Nuriya Studio website.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

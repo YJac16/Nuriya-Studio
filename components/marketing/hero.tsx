@@ -7,11 +7,12 @@ export function Hero() {
   return (
     <section className="relative min-h-[calc(100vh-4.25rem)] overflow-hidden">
       <Image
-        src="/images/nuriya-logo-vector.png"
+        src="/images/nuriya-logo.png"
         alt=""
         fill
         priority
-        className="object-cover object-center opacity-[0.14] dark:opacity-[0.2]"
+        quality={60}
+        className="object-cover object-center opacity-[0.12] dark:opacity-[0.18]"
         sizes="100vw"
       />
       <div
