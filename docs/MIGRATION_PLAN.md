@@ -1,6 +1,6 @@
 # Nuriya Studio — Full Audit & Migration Plan
 
-**Status:** Approved — Phase 1 in progress  
+**Status:** Phases 1–6 complete — awaiting approval to merge `main`  
 **Branch:** `cursor/nuriya-studio-rebrand-9957`  
 **Stack decision:** Next.js App Router + TypeScript + Sanity CMS + Supabase (booking)  
 **Positioning:** A software studio building digital products that help businesses grow.
@@ -654,7 +654,8 @@ Confirm or override defaults:
 - **Phase 2 complete:** Commercial core — services, pricing, forms (Resend), Supabase booking.
 - **Phase 3 complete:** Sanity CMS — portfolio, blog, testimonials, FAQs, team, studio.
 - **Phase 4 complete:** Solutions, product waitlists, resources, legal polish.
-- **Phase 5 in progress:** SEO, analytics consent, performance polish.
+- **Phase 5 complete:** SEO, analytics consent, performance polish.
+- **Phase 6 complete:** Architecture docs — portal, AI, SaaS + final review (`docs/FINAL_REVIEW.md`).
 
 ---
 

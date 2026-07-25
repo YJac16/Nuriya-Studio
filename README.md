@@ -70,6 +70,16 @@ Booking uses an owned Supabase flow (not Calendly).
 
 See [`docs/MIGRATION_PLAN.md`](docs/MIGRATION_PLAN.md) for the full rebrand roadmap.
 
+## Docs
+
+| Doc | Purpose |
+|-----|---------|
+| [`docs/MIGRATION_PLAN.md`](docs/MIGRATION_PLAN.md) | Full audit + phased plan |
+| [`docs/FINAL_REVIEW.md`](docs/FINAL_REVIEW.md) | Phases 1–6 ship summary |
+| [`docs/CLIENT_PORTAL_ARCHITECTURE.md`](docs/CLIENT_PORTAL_ARCHITECTURE.md) | Future portal (not built) |
+| [`docs/AI_ROADMAP.md`](docs/AI_ROADMAP.md) | Future AI tools (not built) |
+| [`docs/SAAS_ROADMAP.md`](docs/SAAS_ROADMAP.md) | Product/SaaS sequencing |
+
 ## Branching
 
 Work happens on `cursor/nuriya-studio-rebrand-9957`.  
