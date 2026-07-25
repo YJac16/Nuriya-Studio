@@ -650,7 +650,8 @@ Confirm or override defaults:
 ## 20. Implementation log
 
 - **2026-07-25 — Plan approved.** WhatsApp number deferred. Booking confirmed as owned Supabase system (not Calendly).
-- **Phase 1 in progress:** Next.js foundation, design system, shell, Railway hardening, route stubs.
+- **Phase 1 complete:** Next.js foundation, design system, shell, Railway hardening, route stubs.
+- **Phase 2 in progress:** Commercial core — services, pricing, forms (Resend), Supabase booking.
 
 ---
 

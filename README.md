@@ -36,6 +36,12 @@ Copy `.env.example` to `.env.local` and fill values as phases land.
 WhatsApp CTA stays hidden until `NEXT_PUBLIC_WHATSAPP_NUMBER` is set.  
 Booking uses an owned Supabase flow (not Calendly).
 
+### Phase 2 wiring
+
+1. **Resend** — set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, optional `RESEND_FROM_EMAIL`.
+2. **Supabase booking** — create a project, run [`supabase/migrations/001_bookings.sql`](supabase/migrations/001_bookings.sql), set `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`.
+3. Forms degrade gracefully until keys are present (clear fallback messaging).
+
 ## Deployment (Railway)
 
 - Build: `npm run build`

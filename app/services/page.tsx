@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/marketing/page-intro";
-import { Button } from "@/components/ui/button";
+import { ServiceGrid } from "@/components/marketing/service-grid";
+import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
@@ -14,11 +15,15 @@ export default function ServicesPage() {
     <>
       <PageIntro
         title="Services"
-        description="From launch-ready landing pages to custom business software — scoped packages with clear delivery windows."
+        description="Clear packages for websites, booking systems, and custom software — with delivery windows you can plan around."
       />
-      <Container className="py-12">
-        <Button href="/book">Book Consultation</Button>
+      <Container className="pb-20">
+        <ServiceGrid />
       </Container>
+      <CtaBand
+        title="Not sure which package fits?"
+        description="Book a consultation and we will recommend the leanest path to launch."
+      />
     </>
   );
 }

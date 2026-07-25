@@ -1,5 +1,6 @@
 export const SITE_NAME = "Nuriya Studio";
-export const SITE_TAGLINE = "A software studio building digital products that help businesses grow.";
+export const SITE_TAGLINE =
+  "A software studio building digital products that help businesses grow.";
 export const SITE_DESCRIPTION =
   "Nuriya Studio builds websites, business software, booking systems, and AI automation for growing businesses.";
 
@@ -36,4 +37,10 @@ export const FOOTER_LINKS = {
 
 export function getSiteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+}
+
+export function getWhatsAppUrl(): string | null {
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
+  if (!number) return null;
+  return `https://wa.me/${number}`;
 }

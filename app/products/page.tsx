@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/marketing/page-intro";
-import { Button } from "@/components/ui/button";
+import { ProductGrid } from "@/components/marketing/product-grid";
+import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
@@ -14,13 +15,12 @@ export default function ProductsPage() {
     <>
       <PageIntro
         title="Products"
-        description="Software products in development — transport, fleet, booking, invoicing, and AI automation."
+        description="Software products designed for recurring value — starting with transport, booking, invoicing, and automation."
       />
-      <Container className="py-12">
-        <Button href="/contact" variant="secondary">
-          Request Quote
-        </Button>
+      <Container className="pb-20">
+        <ProductGrid />
       </Container>
+      <CtaBand />
     </>
   );
 }
