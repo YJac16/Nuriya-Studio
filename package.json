@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && node scripts/prepare-standalone.mjs",
-    "start": "HOSTNAME=0.0.0.0 node .next/standalone/server.js",
+    "build": "next build",
+    "build:standalone": "BUILD_STANDALONE=1 next build && node scripts/prepare-standalone.mjs",
+    "start": "next start --hostname 0.0.0.0",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write ."

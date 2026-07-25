@@ -64,9 +64,10 @@ Booking uses an owned Supabase flow (not Calendly).
 ## Deployment (Railway)
 
 - Build: `npm run build`
-- Start: `npm start` (or `HOSTNAME=0.0.0.0 node .next/standalone/server.js`)
+- Start: `npm start` (`next start --hostname 0.0.0.0`, uses `PORT`)
 - Health check: `/api/health`
-- Node: `20` (see `.nvmrc`)
+- Node: `20` (see `.nvmrc` / `nixpacks.toml`)
+- Optional standalone: `npm run build:standalone` then `node .next/standalone/server.js`
 
 See [`docs/MIGRATION_PLAN.md`](docs/MIGRATION_PLAN.md) for the full rebrand roadmap.
 
