@@ -42,6 +42,13 @@ Booking uses an owned Supabase flow (not Calendly).
 2. **Supabase booking** — create a project, run [`supabase/migrations/001_bookings.sql`](supabase/migrations/001_bookings.sql), set `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`.
 3. Forms degrade gracefully until keys are present (clear fallback messaging).
 
+### Phase 3 — Sanity CMS
+
+1. Create a Sanity project and set `NEXT_PUBLIC_SANITY_PROJECT_ID` + `NEXT_PUBLIC_SANITY_DATASET`.
+2. Open `/studio` to manage Portfolio, Blog, Testimonials, FAQs, Team, and Settings.
+3. Optional: set `SANITY_API_READ_TOKEN` and webhook to `/api/revalidate?secret=...`.
+4. Until Sanity is connected, FAQ/static fallbacks keep commercial pages working.
+
 ## Deployment (Railway)
 
 - Build: `npm run build`

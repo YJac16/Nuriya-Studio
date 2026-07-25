@@ -7,10 +7,19 @@ import { OneTimePricing, MonthlyPricing } from "@/components/marketing/pricing-t
 import { TestimonialList } from "@/components/marketing/testimonial-list";
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { ProjectCard } from "@/components/content/project-card";
 import { Button } from "@/components/ui/button";
-import { testimonials } from "@/lib/content/testimonials";
+import { getFaqs, getProjects, getTestimonials } from "@/lib/content/data";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [faqs, testimonials, projects] = await Promise.all([
+    getFaqs(),
+    getTestimonials(),
+    getProjects(),
+  ]);
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+  const portfolioPreview = featuredProjects.length ? featuredProjects : projects.slice(0, 3);
+
   return (
     <>
       <Hero />
@@ -41,9 +50,20 @@ export default function HomePage() {
       <Section id="portfolio">
         <SectionHeading
           eyebrow="Portfolio"
-          title="Selected work, coming into view."
-          description="Case studies will cover overview, problem, solution, tech stack, and results."
+          title={portfolioPreview.length ? "Selected work." : "Selected work, coming into view."}
+          description={
+            portfolioPreview.length
+              ? "Case studies covering overview, problem, solution, tech stack, and results."
+              : "Case studies will appear here once published in Sanity Studio."
+          }
         />
+        {portfolioPreview.length ? (
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {portfolioPreview.map((project) => (
+              <ProjectCard key={project._id} project={project} />
+            ))}
+          </div>
+        ) : null}
         <div className="mt-8">
           <Button href="/portfolio" variant="secondary">
             View portfolio
@@ -85,7 +105,7 @@ export default function HomePage() {
             title="What clients say."
             description="Direct feedback from teams we have partnered with."
           />
-          <TestimonialList />
+          <TestimonialList items={testimonials} />
         </Section>
       ) : null}
 
@@ -95,7 +115,7 @@ export default function HomePage() {
           title="Straight answers."
           description="A few things businesses usually ask before we start."
         />
-        <FaqAccordion />
+        <FaqAccordion items={faqs} />
       </Section>
 
       <CtaBand />

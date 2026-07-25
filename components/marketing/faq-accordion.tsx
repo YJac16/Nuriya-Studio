@@ -1,18 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/content/faqs";
 import { cn } from "@/lib/utils";
 
-export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export function FaqAccordion({ items }: { items: FaqItem[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(items.length ? 0 : null);
+
+  if (!items.length) return null;
 
   return (
     <div className="mt-10 divide-y divide-border border-y border-border">
-      {faqs.map((faq, index) => {
+      {items.map((faq, index) => {
         const open = openIndex === index;
         return (
-          <div key={faq.question}>
+          <div key={`${faq.question}-${index}`}>
             <h3>
               <button
                 type="button"

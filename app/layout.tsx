@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SkipToContent } from "@/components/layout/skip-to-content";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
 import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 import "./globals.css";
@@ -55,9 +53,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <ThemeProvider>
           <SkipToContent />
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
+          {children}
         </ThemeProvider>
       </body>
     </html>

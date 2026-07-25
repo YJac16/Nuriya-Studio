@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { Section, SectionHeading } from "@/components/marketing/section";
 import { Container } from "@/components/ui/container";
+import { getFaqs } from "@/lib/content/data";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
     "Transparent packages from R2,499 and monthly plans from R299 for websites, booking systems, and custom software.",
 };
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const faqs = await getFaqs();
+
   return (
     <>
       <PageIntro
@@ -31,7 +34,7 @@ export default function PricingPage() {
           title="Pricing questions"
           description="If you need a hybrid or phased approach, we will propose one."
         />
-        <FaqAccordion />
+        <FaqAccordion items={faqs} />
       </Section>
       <CtaBand />
     </>

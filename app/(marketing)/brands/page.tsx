@@ -3,13 +3,15 @@ import Image from "next/image";
 import { PageIntro } from "@/components/marketing/page-intro";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { getSiteSettings } from "@/lib/content/data";
+import { urlForImage } from "@/lib/sanity/image";
 
 export const metadata: Metadata = {
   title: "Our Brands",
   description: "Nuriya Studio, Athariq, and Little Light — the brands in our group.",
 };
 
-const brands = [
+const fallbackBrands = [
   {
     name: "Nuriya Studio",
     role: "Software",
@@ -36,7 +38,25 @@ const brands = [
   },
 ] as const;
 
-export default function BrandsPage() {
+export default async function BrandsPage() {
+  const settings = await getSiteSettings();
+  const cmsBrands =
+    settings?.brands
+      ?.filter((brand) => brand.name)
+      .map((brand) => {
+        const logoUrl = brand.logo ? urlForImage(brand.logo)?.width(128).height(128).url() : null;
+        return {
+          name: brand.name || "",
+          role: brand.role || "",
+          description: brand.description || "",
+          href: brand.url || "/",
+          image: logoUrl || "/images/nuriya-logo.png",
+          external: Boolean(brand.url && !brand.url.startsWith("/")),
+        };
+      }) || [];
+
+  const brands = cmsBrands.length ? cmsBrands : fallbackBrands;
+
   return (
     <>
       <PageIntro
@@ -53,11 +73,15 @@ export default function BrandsPage() {
               height={64}
               className="size-16 object-contain"
             />
-            <p className="font-mono text-xs tracking-wide text-accent uppercase">
-              {brand.role}
-            </p>
+            {brand.role ? (
+              <p className="font-mono text-xs tracking-wide text-accent uppercase">
+                {brand.role}
+              </p>
+            ) : null}
             <h2 className="font-display text-2xl text-fg">{brand.name}</h2>
-            <p className="text-sm leading-relaxed text-fg-muted">{brand.description}</p>
+            {brand.description ? (
+              <p className="text-sm leading-relaxed text-fg-muted">{brand.description}</p>
+            ) : null}
             <Button
               href={brand.href}
               variant="secondary"
