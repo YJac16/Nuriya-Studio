@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
-import { Container } from "@/components/ui/container";
+import { DesktopNav } from "@/components/layout/desktop-nav";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { SITE_NAME } from "@/lib/constants";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-bg/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-bg shadow-[0_1px_0_0_rgba(0,0,0,0.03)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.04)]">
       <Container className="flex h-[4.25rem] items-center justify-between gap-4">
         <Link
           href="/"
@@ -27,17 +28,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="min-h-10 px-3 py-2 text-sm text-fg-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <DesktopNav />
 
         <div className="flex items-center gap-1">
           <ThemeToggle />

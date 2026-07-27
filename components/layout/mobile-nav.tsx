@@ -51,9 +51,18 @@ export function MobileNav() {
         </svg>
       </button>
 
+      {open ? (
+        <button
+          type="button"
+          aria-label="Close menu"
+          className="fixed inset-0 top-[4.25rem] z-30 bg-fg/20 md:hidden"
+          onClick={() => setOpen(false)}
+        />
+      ) : null}
+
       <div
         className={cn(
-          "fixed inset-x-0 top-[4.25rem] z-40 border-b border-border bg-bg/95 px-5 py-6 backdrop-blur-md transition-all duration-200",
+          "fixed inset-x-0 top-[4.25rem] z-40 border-b border-border bg-bg px-5 py-6 shadow-lg transition-all duration-200",
           open ? "visible opacity-100" : "invisible pointer-events-none opacity-0",
         )}
       >
@@ -67,7 +76,7 @@ export function MobileNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "min-h-11 px-2 py-3 text-base transition-colors",
-                  active ? "text-fg" : "text-fg-muted hover:text-fg",
+                  active ? "font-medium text-fg" : "text-fg/80 hover:text-fg",
                 )}
               >
                 {link.label}

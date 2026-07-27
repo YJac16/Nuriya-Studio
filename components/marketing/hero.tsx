@@ -17,9 +17,9 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/75 to-bg"
+        className="absolute inset-0 bg-gradient-to-b from-bg via-bg/90 to-bg"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-hero-glow opacity-80" />
+      <div aria-hidden="true" className="absolute inset-0 bg-hero-glow opacity-60" />
 
       <Container className="relative flex min-h-[calc(100vh-4.25rem)] flex-col justify-center py-20">
         <div className="max-w-3xl animate-fade-up">
@@ -29,7 +29,7 @@ export function Hero() {
           <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-fg sm:text-6xl lg:text-7xl">
             Digital products that help businesses grow.
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-fg-muted sm:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-fg/75 sm:text-lg">
             Websites, software, and automation — built to be fast, reliable, and ready to
             scale.
           </p>
