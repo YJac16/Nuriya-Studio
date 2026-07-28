@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelId = useId();
 
   useEffect(() => {
     setOpen(false);
@@ -22,12 +24,33 @@ export function MobileNav() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  const closeMenu = () => {
+    setOpen(false);
+    buttonRef.current?.focus();
+  };
+
   return (
     <div className="md:hidden">
       <button
+        ref={buttonRef}
         type="button"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
+        aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
         className="inline-flex size-10 items-center justify-center text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
@@ -56,13 +79,14 @@ export function MobileNav() {
           type="button"
           aria-label="Close menu"
           className="fixed inset-0 top-[4.25rem] z-30 bg-fg/20 md:hidden"
-          onClick={() => setOpen(false)}
+          onClick={closeMenu}
         />
       ) : null}
 
       <div
+        id={panelId}
         className={cn(
-          "fixed inset-x-0 top-[4.25rem] z-40 border-b border-border bg-bg px-5 py-6 shadow-lg transition-all duration-200",
+          "fixed inset-x-0 top-[4.25rem] bottom-0 z-40 overflow-y-auto border-b border-border bg-bg px-5 py-8 transition-all duration-200",
           open ? "visible opacity-100" : "invisible pointer-events-none opacity-0",
         )}
       >
@@ -75,7 +99,7 @@ export function MobileNav() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "min-h-11 px-2 py-3 text-base transition-colors",
+                  "min-h-12 px-2 py-3 text-lg transition-colors",
                   active ? "font-medium text-fg" : "text-fg/80 hover:text-fg",
                 )}
               >
@@ -84,7 +108,7 @@ export function MobileNav() {
             );
           })}
         </nav>
-        <div className="mt-4 flex flex-col gap-3">
+        <div className="mt-8 flex flex-col gap-3">
           <Button href="/book" className="w-full">
             Book Consultation
           </Button>

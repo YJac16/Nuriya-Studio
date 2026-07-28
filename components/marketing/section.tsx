@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/marketing/reveal";
 
 export function Section({
   children,
@@ -18,11 +19,13 @@ export function Section({
       id={id}
       className={cn(
         "py-20 sm:py-24",
-        tone === "muted" && "border-y border-border bg-bg-elevated",
+        tone === "muted" && "border-y border-border/80 bg-bg-elevated",
         className,
       )}
     >
-      <Container>{children}</Container>
+      <Container>
+        <Reveal>{children}</Reveal>
+      </Container>
     </section>
   );
 }

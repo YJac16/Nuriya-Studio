@@ -3,38 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --bg: #fafaf9;
-  --bg-elevated: #ffffff;
-  --fg: #0a0a0a;
-  --fg-muted: #44403c;
-  --border: #e7e5e4;
-  --accent: #0f766e;
-  --accent-fg: #ffffff;
+  --bg: #f7f8f6;
+  --bg-elevated: #eef0ed;
+  --fg: #1a1d1c;
+  --fg-muted: #5c6562;
+  --border: #d5dad6;
+  --accent: #0d7377;
+  --accent-fg: #f7f8f6;
   --hero-glow: radial-gradient(
-      60% 50% at 15% 10%,
-      rgba(15, 118, 110, 0.12),
+      55% 45% at 18% 12%,
+      rgba(13, 115, 119, 0.1),
       transparent 70%
     ),
-    radial-gradient(40% 40% at 90% 20%, rgba(10, 10, 10, 0.04), transparent 70%),
-    linear-gradient(180deg, #fafaf9 0%, #f5f5f4 100%);
+    radial-gradient(40% 40% at 88% 18%, rgba(26, 29, 28, 0.04), transparent 70%),
+    linear-gradient(180deg, #f7f8f6 0%, #eef0ed 100%);
   color-scheme: light;
 }
 
 .dark {
-  --bg: #0a0a0a;
-  --bg-elevated: #141414;
-  --fg: #f5f5f4;
-  --fg-muted: #d6d3d1;
-  --border: #292524;
-  --accent: #2dd4bf;
-  --accent-fg: #042f2e;
+  --bg: #121414;
+  --bg-elevated: #1a1d1c;
+  --fg: #f0f2f0;
+  --fg-muted: #9aa3a0;
+  --border: #2e3432;
+  --accent: #2a9a9e;
+  --accent-fg: #121414;
   --hero-glow: radial-gradient(
       55% 45% at 20% 15%,
-      rgba(45, 212, 191, 0.14),
+      rgba(42, 154, 158, 0.12),
       transparent 70%
     ),
-    radial-gradient(35% 35% at 85% 25%, rgba(255, 255, 255, 0.04), transparent 70%),
-    linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+    radial-gradient(35% 35% at 85% 25%, rgba(255, 255, 255, 0.03), transparent 70%),
+    linear-gradient(180deg, #121414 0%, #1a1d1c 100%);
   color-scheme: dark;
 }
 

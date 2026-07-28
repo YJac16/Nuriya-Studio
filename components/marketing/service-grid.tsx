@@ -19,18 +19,20 @@ export function ServiceGrid({
   return (
     <ul className={cn("mt-10 grid gap-px bg-border md:grid-cols-2 xl:grid-cols-3", className)}>
       {items.map((service) => (
-        <li key={service.slug} className="bg-bg p-6 sm:p-8">
-          <p className="font-mono text-xs tracking-wide text-accent uppercase">
-            {formatPrice(service)}
-          </p>
-          <h3 className="mt-3 font-display text-2xl text-fg">{service.name}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-fg-muted">{service.summary}</p>
-          <p className="mt-4 text-xs text-fg-muted">Delivery · {service.delivery}</p>
+        <li key={service.slug} className="bg-bg">
           <Link
             href={`/services/${service.slug}`}
-            className="mt-6 inline-flex min-h-10 items-center text-sm font-medium text-fg underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="group flex h-full flex-col p-6 transition-colors hover:bg-bg-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:p-8"
           >
-            View package
+            <p className="font-mono text-xs tracking-wide text-accent uppercase">
+              {formatPrice(service)}
+            </p>
+            <h3 className="mt-3 font-display text-2xl text-fg">{service.name}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-fg-muted">{service.summary}</p>
+            <p className="mt-4 text-xs text-fg-muted">Delivery · {service.delivery}</p>
+            <span className="mt-6 inline-flex min-h-10 items-center text-sm font-medium text-fg underline-offset-4 group-hover:underline">
+              View package
+            </span>
           </Link>
         </li>
       ))}

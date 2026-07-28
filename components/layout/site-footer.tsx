@@ -33,7 +33,7 @@ export function SiteFooter() {
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-5 inline-block text-sm text-fg transition-colors hover:text-accent"
+              className="mt-5 inline-block text-sm text-fg transition-opacity hover:opacity-70"
             >
               {CONTACT_EMAIL}
             </a>

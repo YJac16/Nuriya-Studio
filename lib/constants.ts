@@ -8,11 +8,9 @@ export const CONTACT_EMAIL = "hello@nuriyastudio.com";
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Work" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const FOOTER_LINKS = {

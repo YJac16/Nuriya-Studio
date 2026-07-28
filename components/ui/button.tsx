@@ -6,8 +6,8 @@ const variants = {
   primary:
     "bg-accent text-accent-fg hover:bg-accent/90 focus-visible:ring-accent",
   secondary:
-    "border border-border bg-transparent text-fg hover:bg-fg/5 focus-visible:ring-fg/30",
-  ghost: "bg-transparent text-fg hover:bg-fg/5 focus-visible:ring-fg/30",
+    "border border-border bg-transparent text-fg hover:border-accent/50 hover:bg-bg-elevated focus-visible:ring-accent/40",
+  ghost: "bg-transparent text-fg-muted hover:bg-fg/5 hover:text-fg focus-visible:ring-fg/30",
 } as const;
 
 type Variant = keyof typeof variants;
@@ -37,7 +37,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium tracking-[0.02em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50",
     variants[variant],
     className,
   );

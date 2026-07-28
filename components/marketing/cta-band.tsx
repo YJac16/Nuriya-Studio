@@ -12,12 +12,12 @@ export function CtaBand({
   return (
     <Section tone="muted">
       <SectionHeading title={title} description={description} />
-      <div className="mt-8 flex flex-wrap gap-3">
+      <div className="mt-8 flex flex-wrap items-center gap-3">
         <Button href="/book">Book Consultation</Button>
         <Button href="/contact" variant="secondary">
           Request Quote
         </Button>
-        <WhatsAppButton />
+        <WhatsAppButton variant="ghost" />
       </div>
     </Section>
   );

@@ -4,8 +4,8 @@
   "description": "A software studio building digital products that help businesses grow.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fafaf9",
-  "theme_color": "#0f766e",
+  "background_color": "#f7f8f6",
+  "theme_color": "#0d7377",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
