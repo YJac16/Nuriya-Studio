@@ -5,25 +5,8 @@ import { Container } from "@/components/ui/container";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-4.25rem)] overflow-hidden">
-      <Image
-        src="/images/yaseen-jacobs.jpg"
-        alt=""
-        fill
-        priority
-        quality={75}
-        className="object-cover object-[center_20%] sm:object-[center_25%]"
-        sizes="100vw"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-bg via-bg/94 to-bg/50 dark:from-bg dark:via-bg/92 dark:to-bg/45"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/35"
-      />
-      <div aria-hidden="true" className="absolute inset-0 bg-hero-glow opacity-40" />
+    <section className="relative min-h-[calc(100vh-4.25rem)] overflow-hidden bg-bg">
+      <div aria-hidden="true" className="absolute inset-0 bg-hero-glow" />
       <Image
         src={LOGO_MARK}
         alt=""
