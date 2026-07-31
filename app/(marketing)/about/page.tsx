@@ -12,7 +12,7 @@ import { urlForImage } from "@/lib/sanity/image";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nuriya Studio is a software studio building digital products that help businesses grow.",
+    "Nūriya Studios is a software studio building digital products that help businesses grow.",
 };
 
 export default async function AboutPage() {
@@ -22,12 +22,12 @@ export default async function AboutPage() {
     <>
       <PageIntro
         title="About"
-        description="Nuriya Studio is a software studio building digital products that help businesses grow."
+        description="Nūriya Studios is a software studio building digital products that help businesses grow."
       />
       <Container className="space-y-8 py-16 text-base leading-relaxed text-fg-muted">
         <p>
           Client websites generate cash flow. Software products create recurring revenue.
-          Over time, Nuriya Studio will own multiple SaaS platforms — starting from the
+          Over time, Nūriya Studios will own multiple SaaS platforms — starting from the
           systems we already build for businesses every day.
         </p>
         <p>
@@ -47,7 +47,7 @@ export default async function AboutPage() {
           <SectionHeading
             eyebrow="Team"
             title="People behind the work."
-            description="The operators, designers, and builders shipping Nuriya Studio products."
+            description="The operators, designers, and builders shipping Nūriya Studios products."
           />
           <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => {

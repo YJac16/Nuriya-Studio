@@ -6,7 +6,7 @@ import { getResources } from "@/lib/content/data";
 
 export const metadata: Metadata = {
   title: "Resources",
-  description: "Guides, checklists, and practical resources from Nuriya Studio.",
+  description: "Guides, checklists, and practical resources from Nūriya Studios.",
 };
 
 export default async function ResourcesPage() {

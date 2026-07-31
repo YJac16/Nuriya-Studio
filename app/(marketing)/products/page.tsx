@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Future Nuriya Studio software products — transport, fleet, booking, invoicing, and AI automation.",
+    "Future Nūriya Studios software products — transport, fleet, booking, invoicing, and AI automation.",
 };
 
 export default function ProductsPage() {

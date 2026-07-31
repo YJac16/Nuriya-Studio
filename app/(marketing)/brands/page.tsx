@@ -4,20 +4,21 @@ import { PageIntro } from "@/components/marketing/page-intro";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { getSiteSettings } from "@/lib/content/data";
+import { LOGO_MARK, SITE_NAME } from "@/lib/constants";
 import { urlForImage } from "@/lib/sanity/image";
 
 export const metadata: Metadata = {
   title: "Our Brands",
-  description: "Nuriya Studio, Athariq, and Little Light — the brands in our group.",
+  description: `${SITE_NAME}, Athariq, and Little Light — the brands in our group.`,
 };
 
 const fallbackBrands = [
   {
-    name: "Nuriya Studio",
+    name: SITE_NAME,
     role: "Software",
     description: "Digital products that help businesses grow.",
     href: "/",
-    image: "/images/nuriya-logo.png",
+    image: LOGO_MARK,
     external: false,
   },
   {
@@ -50,7 +51,7 @@ export default async function BrandsPage() {
           role: brand.role || "",
           description: brand.description || "",
           href: brand.url || "/",
-          image: logoUrl || "/images/nuriya-logo.png",
+          image: logoUrl || LOGO_MARK,
           external: Boolean(brand.url && !brand.url.startsWith("/")),
         };
       }) || [];
@@ -61,7 +62,7 @@ export default async function BrandsPage() {
     <>
       <PageIntro
         title="Our Brands"
-        description="Nuriya Studio is the software company. Sibling brands extend the group without diluting the core offer."
+        description={`${SITE_NAME} is the software company. Sibling brands extend the group without diluting the core offer.`}
       />
       <Container className="grid gap-10 py-16 md:grid-cols-3">
         {brands.map((brand) => (
@@ -69,9 +70,9 @@ export default async function BrandsPage() {
             <Image
               src={brand.image}
               alt={`${brand.name} logo`}
-              width={64}
-              height={64}
-              className="size-16 object-contain"
+              width={72}
+              height={72}
+              className="size-[4.5rem] object-contain"
             />
             {brand.role ? (
               <p className="font-mono text-xs tracking-wide text-accent uppercase">

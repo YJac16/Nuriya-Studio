@@ -8,7 +8,7 @@ import { isSanityConfigured } from "@/sanity/env";
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Selected work and case studies from Nuriya Studio.",
+  description: "Selected work and case studies from Nūriya Studios.",
 };
 
 export default async function PortfolioPage() {

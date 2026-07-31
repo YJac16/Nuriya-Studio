@@ -24,7 +24,7 @@ export async function sendLeadEmail({
   }
 
   const from =
-    process.env.RESEND_FROM_EMAIL || "Nuriya Studio <onboarding@resend.dev>";
+    process.env.RESEND_FROM_EMAIL || "Nūriya Studios <onboarding@resend.dev>";
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from,

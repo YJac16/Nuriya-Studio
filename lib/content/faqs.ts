@@ -1,6 +1,6 @@
 export const faqs = [
   {
-    question: "Who is Nuriya Studio for?",
+    question: "Who is Nūriya Studios for?",
     answer:
       "Small and growing businesses — SMEs, transport and tour operators, medical practices, professional services, trades, hospitality, and startups.",
   },

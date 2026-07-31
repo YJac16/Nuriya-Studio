@@ -1,8 +1,14 @@
-export const SITE_NAME = "Nuriya Studio";
+export const SITE_NAME = "Nūriya Studios";
+export const SITE_SHORT_NAME = "Nūriya";
 export const SITE_TAGLINE =
   "A software studio building digital products that help businesses grow.";
 export const SITE_DESCRIPTION =
-  "Nuriya Studio builds websites, business software, booking systems, and AI automation for growing businesses.";
+  "Nūriya Studios builds websites, business software, booking systems, and AI automation for growing businesses.";
+
+/** Mark only — circular emblem */
+export const LOGO_MARK = "/images/nuriya-logo.png";
+/** Full lockup — mark + Nūriya + STUDIOS */
+export const LOGO_LOCKUP = "/images/nuriya-logo-and-name.png";
 
 export const CONTACT_EMAIL = "hello@nuriyastudio.com";
 

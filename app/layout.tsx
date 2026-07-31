@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     images: [
       {
-        url: "/images/nuriya-logo-vector.png",
+        url: "/images/nuriya-logo-and-name.png",
         width: 512,
         height: 512,
         alt: SITE_NAME,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_TAGLINE,
-    images: ["/images/nuriya-logo-vector.png"],
+    images: ["/images/nuriya-logo-and-name.png"],
   },
   icons: {
     icon: [{ url: "/favicon.svg" }, { url: "/favicon.ico" }],
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f8f6" },
-    { media: "(prefers-color-scheme: dark)", color: "#121414" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f1e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#14110e" },
   ],
 };
 

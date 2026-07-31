@@ -9,7 +9,7 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { SITE_NAME } from "@/lib/constants";
+import { LOGO_MARK, SITE_NAME, SITE_SHORT_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -38,18 +38,24 @@ export function SiteHeader() {
       <Container className="flex h-[4.25rem] items-center justify-between gap-4">
         <Link
           href="/"
+          aria-label={SITE_NAME}
           className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           <Image
-            src="/images/nuriya-logo.png"
+            src={LOGO_MARK}
             alt=""
-            width={36}
-            height={36}
-            className="size-9"
+            width={40}
+            height={40}
+            className="size-9 object-contain"
             priority
           />
-          <span className="font-sans text-sm font-semibold tracking-[0.14em] text-fg uppercase">
-            {SITE_NAME}
+          <span className="flex flex-col leading-none">
+            <span className="font-sans text-[0.95rem] font-medium tracking-[0.04em] text-fg">
+              {SITE_SHORT_NAME}
+            </span>
+            <span className="mt-1 font-sans text-[0.62rem] font-medium tracking-[0.28em] text-fg-muted uppercase">
+              Studios
+            </span>
           </span>
         </Link>
 

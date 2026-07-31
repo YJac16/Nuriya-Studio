@@ -6,8 +6,8 @@ const variants = {
   primary:
     "bg-accent text-accent-fg hover:bg-accent/90 focus-visible:ring-accent",
   secondary:
-    "border border-border bg-transparent text-fg hover:border-accent/50 hover:bg-bg-elevated focus-visible:ring-accent/40",
-  ghost: "bg-transparent text-fg-muted hover:bg-fg/5 hover:text-fg focus-visible:ring-fg/30",
+    "border border-fg/25 bg-transparent text-fg hover:border-fg/40 hover:bg-fg/5 focus-visible:ring-fg/30",
+  ghost: "bg-transparent text-fg hover:bg-fg/5 focus-visible:ring-fg/30",
 } as const;
 
 type Variant = keyof typeof variants;

@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Book Consultation",
-  description: "Book a consultation with Nuriya Studio.",
+  description: "Book a consultation with Nūriya Studios.",
 };
 
 export default function BookPage() {

@@ -2,7 +2,7 @@
   "name": "nuriya-studio",
   "version": "2.0.0",
   "private": true,
-  "description": "Nuriya Studio — a software studio building digital products that help businesses grow.",
+  "description": "Nūriya Studios — a software studio building digital products that help businesses grow.",
   "engines": {
     "node": ">=20"
   },

@@ -9,7 +9,7 @@ const configuredProjectId = projectId || "placeholder";
 
 export default defineConfig({
   name: "nuriya-studio",
-  title: "Nuriya Studio",
+  title: "Nūriya Studios",
   projectId: configuredProjectId,
   dataset,
   basePath: "/studio",

@@ -7,7 +7,7 @@ import { isSanityConfigured } from "@/sanity/env";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Insights from Nuriya Studio on software, websites, and automation.",
+  description: "Insights from Nūriya Studios on software, websites, and automation.",
 };
 
 export default async function BlogPage() {

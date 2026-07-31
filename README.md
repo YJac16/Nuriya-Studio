@@ -1,4 +1,4 @@
-# Nuriya Studio
+# Nūriya Studios
 
 A software studio building digital products that help businesses grow.
 

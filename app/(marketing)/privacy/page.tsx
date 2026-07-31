@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "Privacy policy for Nuriya Studio.",
+  description: "Privacy policy for Nūriya Studios.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
     <>
       <PageIntro
         title="Privacy"
-        description="How Nuriya Studio collects and uses information when you use this website or contact us."
+        description="How Nūriya Studios collects and uses information when you use this website or contact us."
       />
       <Container className="max-w-prose space-y-8 py-16 text-sm leading-relaxed text-fg-muted">
         <section className="space-y-3">

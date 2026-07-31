@@ -33,7 +33,7 @@ export default async function ResourceDetailPage({ params }: Props) {
     <>
       <PageIntro
         title={resource.title}
-        description={resource.summary || "Practical guidance from Nuriya Studio."}
+        description={resource.summary || "Practical guidance from Nūriya Studios."}
       />
       <Container className="max-w-prose space-y-8 py-16">
         <p className="font-mono text-xs tracking-wide text-accent uppercase">

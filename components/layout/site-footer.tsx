@@ -3,7 +3,9 @@ import Link from "next/link";
 import {
   CONTACT_EMAIL,
   FOOTER_LINKS,
+  LOGO_MARK,
   SITE_NAME,
+  SITE_SHORT_NAME,
   SITE_TAGLINE,
 } from "@/lib/constants";
 import { Container } from "@/components/ui/container";
@@ -18,14 +20,19 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src="/images/nuriya-logo.png"
+                src={LOGO_MARK}
                 alt=""
-                width={32}
-                height={32}
-                className="size-8"
+                width={36}
+                height={36}
+                className="size-9 object-contain"
               />
-              <span className="text-sm font-semibold tracking-[0.14em] text-fg uppercase">
-                {SITE_NAME}
+              <span className="flex flex-col leading-none">
+                <span className="font-sans text-sm font-medium tracking-[0.04em] text-fg">
+                  {SITE_SHORT_NAME}
+                </span>
+                <span className="mt-1 font-sans text-[0.6rem] font-medium tracking-[0.28em] text-fg-muted uppercase">
+                  Studios
+                </span>
               </span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-fg-muted">

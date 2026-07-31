@@ -1,11 +1,11 @@
 {
-  "name": "Nuriya Studio",
-  "short_name": "Nuriya",
+  "name": "Nūriya Studios",
+  "short_name": "Nūriya",
   "description": "A software studio building digital products that help businesses grow.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f7f8f6",
-  "theme_color": "#0d7377",
+  "background_color": "#f5f1e8",
+  "theme_color": "#3d2f1f",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

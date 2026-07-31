@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Terms of use for the Nuriya Studio website.",
+  description: "Terms of use for the Nūriya Studios website.",
   alternates: { canonical: "/terms" },
 };
 

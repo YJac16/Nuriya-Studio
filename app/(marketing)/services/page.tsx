@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Landing pages, business websites, booking systems, custom software, and enterprise solutions from Nuriya Studio.",
+    "Landing pages, business websites, booking systems, custom software, and enterprise solutions from Nūriya Studios.",
 };
 
 export default function ServicesPage() {

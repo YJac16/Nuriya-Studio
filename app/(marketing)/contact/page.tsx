@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Nuriya Studio to request a quote or start a project.",
+  description: "Contact Nūriya Studios to request a quote or start a project.",
 };
 
 type Props = { searchParams: Promise<{ service?: string }> };
