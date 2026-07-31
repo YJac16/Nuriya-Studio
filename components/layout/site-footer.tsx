@@ -23,8 +23,8 @@ export function SiteFooter() {
                 src={LOGO_MARK}
                 alt=""
                 width={36}
-                height={36}
-                className="size-9 object-contain"
+                height={35}
+                className="logo-asset size-9 object-contain"
               />
               <span className="flex flex-col leading-none">
                 <span className="font-sans text-sm font-medium tracking-[0.04em] text-fg">

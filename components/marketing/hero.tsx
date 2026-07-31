@@ -10,10 +10,10 @@ export function Hero() {
       <Image
         src={LOGO_MARK}
         alt=""
-        width={320}
-        height={320}
+        width={244}
+        height={235}
         aria-hidden="true"
-        className="pointer-events-none absolute -right-6 bottom-6 size-44 opacity-[0.07] sm:size-56 dark:opacity-[0.12]"
+        className="logo-asset pointer-events-none absolute -right-6 bottom-6 size-44 opacity-[0.08] sm:size-56 dark:opacity-[0.14]"
       />
 
       <Container className="relative flex min-h-[calc(100vh-4.25rem)] flex-col justify-center py-20">
@@ -21,10 +21,10 @@ export function Hero() {
           <Image
             src={LOGO_LOCKUP}
             alt={SITE_NAME}
-            width={280}
-            height={320}
+            width={314}
+            height={266}
             priority
-            className="h-auto w-[9.5rem] object-contain sm:w-[11.5rem]"
+            className="logo-asset h-auto w-[11rem] object-contain sm:w-[13.5rem]"
           />
           <h1 className="sr-only">{SITE_NAME}</h1>
           <p className="mt-8 max-w-xl font-display text-3xl leading-[1.15] tracking-tight text-fg sm:text-4xl lg:text-5xl">

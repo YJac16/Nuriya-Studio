@@ -45,8 +45,8 @@ export function SiteHeader() {
             src={LOGO_MARK}
             alt=""
             width={40}
-            height={40}
-            className="size-9 object-contain"
+            height={38}
+            className="logo-asset size-9 object-contain"
             priority
           />
           <span className="flex flex-col leading-none">

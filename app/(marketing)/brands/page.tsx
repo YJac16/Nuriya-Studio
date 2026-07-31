@@ -72,7 +72,11 @@ export default async function BrandsPage() {
               alt={`${brand.name} logo`}
               width={72}
               height={72}
-              className="size-[4.5rem] object-contain"
+              className={
+                brand.image === LOGO_MARK
+                  ? "logo-asset size-[4.5rem] object-contain"
+                  : "size-[4.5rem] object-contain"
+              }
             />
             {brand.role ? (
               <p className="font-mono text-xs tracking-wide text-accent uppercase">

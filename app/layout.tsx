@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: LOGO_LOCKUP,
-        width: 512,
-        height: 512,
+        width: 628,
+        height: 532,
         alt: SITE_NAME,
       },
     ],

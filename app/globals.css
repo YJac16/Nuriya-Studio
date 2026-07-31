@@ -60,6 +60,11 @@
   .bg-hero-glow {
     background-image: var(--hero-glow);
   }
+
+  /* Dark ink logos → cream on dark surfaces */
+  .logo-asset {
+    @apply dark:brightness-0 dark:invert;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
