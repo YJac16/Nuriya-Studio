@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
-import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import { getSiteUrl, LOGO_LOCKUP, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 import { absoluteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     images: [
       {
-        url: "/images/nuriya-logo-and-name.png",
+        url: LOGO_LOCKUP,
         width: 512,
         height: 512,
         alt: SITE_NAME,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_TAGLINE,
-    images: ["/images/nuriya-logo-and-name.png"],
+    images: [LOGO_LOCKUP],
   },
   icons: {
     icon: [{ url: "/favicon.svg" }, { url: "/favicon.ico" }],

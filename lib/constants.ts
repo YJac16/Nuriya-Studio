@@ -5,10 +5,10 @@ export const SITE_TAGLINE =
 export const SITE_DESCRIPTION =
   "Nūriya Studios builds websites, business software, booking systems, and AI automation for growing businesses.";
 
-/** Mark only — circular emblem */
-export const LOGO_MARK = "/images/nuriya-logo.png";
-/** Full lockup — mark + Nūriya + STUDIOS */
-export const LOGO_LOCKUP = "/images/nuriya-logo-and-name.png";
+/** Mark only — circular emblem (transparent edges) */
+export const LOGO_MARK = "/images/nuriya-logo-no-background.png";
+/** Full lockup — mark + Nūriya + STUDIOS (transparent edges) */
+export const LOGO_LOCKUP = "/images/nuriya-logo-and-name-no-background.png";
 
 export const CONTACT_EMAIL = "hello@nuriyastudio.com";
 

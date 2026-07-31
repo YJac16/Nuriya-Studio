@@ -1,4 +1,11 @@
-import { CONTACT_EMAIL, getSiteUrl, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  getSiteUrl,
+  LOGO_MARK,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from "@/lib/constants";
 import { services } from "@/lib/content/services";
 
 export function absoluteUrl(path = "/"): string {
@@ -15,7 +22,7 @@ export function organizationJsonLd() {
     url: absoluteUrl("/"),
     email: CONTACT_EMAIL,
     description: SITE_DESCRIPTION,
-    logo: absoluteUrl("/images/nuriya-logo.png"),
+    logo: absoluteUrl(LOGO_MARK),
     sameAs: [
       process.env.NEXT_PUBLIC_ATHARIQ_URL,
       process.env.NEXT_PUBLIC_LITTLE_LIGHT_URL,
@@ -110,7 +117,7 @@ export function articleJsonLd({
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/images/nuriya-logo.png"),
+        url: absoluteUrl(LOGO_MARK),
       },
     },
   };
