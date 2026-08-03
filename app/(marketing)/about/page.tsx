@@ -26,9 +26,9 @@ export default async function AboutPage() {
       />
       <Container className="space-y-8 py-16 text-base leading-relaxed text-fg-muted">
         <p>
-          Client websites generate cash flow. Software products create recurring revenue.
-          Over time, Nūriya Studios will own multiple SaaS platforms — starting from the
-          systems we already build for businesses every day.
+          We build websites and custom systems for businesses every day. The patterns that
+          prove themselves become products — platforms we keep refining and offer more
+          widely, so more teams can use what already works.
         </p>
         <p>
           We help businesses modernise through websites, business software, AI automation,
