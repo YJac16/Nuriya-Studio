@@ -5,6 +5,7 @@ import { ServiceGrid } from "@/components/marketing/service-grid";
 import { ProcessSteps } from "@/components/marketing/process-steps";
 import { TestimonialList } from "@/components/marketing/testimonial-list";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { EmptyState } from "@/components/marketing/empty-state";
 import { ProjectCard } from "@/components/content/project-card";
 import { Button } from "@/components/ui/button";
 import { getProjects, getTestimonials } from "@/lib/content/data";
@@ -34,25 +35,40 @@ export default async function HomePage() {
       <Section id="portfolio">
         <SectionHeading
           eyebrow="Work"
-          title={portfolioPreview.length ? "Selected work." : "Selected work, coming into view."}
+          title="Selected work."
           description={
             portfolioPreview.length
               ? "Case studies covering overview, problem, solution, tech stack, and results."
-              : "Case studies will appear here once published in Sanity Studio."
+              : "Published case studies will appear here. Until then, we can walk through relevant examples on a call."
           }
         />
         {portfolioPreview.length ? (
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {portfolioPreview.map((project) => (
-              <ProjectCard key={project._id} project={project} />
-            ))}
-          </div>
-        ) : null}
-        <div className="mt-8">
-          <Button href="/portfolio" variant="secondary">
-            View portfolio
-          </Button>
-        </div>
+          <>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {portfolioPreview.map((project) => (
+                <ProjectCard key={project._id} project={project} />
+              ))}
+            </div>
+            <div className="mt-8">
+              <Button href="/portfolio" variant="secondary">
+                View portfolio
+              </Button>
+            </div>
+          </>
+        ) : (
+          <EmptyState
+            title="Case studies are being prepared."
+            description="We publish work once clients are ready to share it. Book a consultation if you would like to see examples relevant to your industry."
+            actions={
+              <>
+                <Button href="/book">Book Consultation</Button>
+                <Button href="/services" variant="secondary">
+                  View services
+                </Button>
+              </>
+            }
+          />
+        )}
       </Section>
 
       <Section id="services" tone="muted">
