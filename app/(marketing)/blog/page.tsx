@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/marketing/page-intro";
+import { EmptyState } from "@/components/marketing/empty-state";
 import { PostCard } from "@/components/content/post-card";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { getPosts } from "@/lib/content/data";
-import { isSanityConfigured } from "@/sanity/env";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -27,11 +28,19 @@ export default async function BlogPage() {
             ))}
           </div>
         ) : (
-          <p className="max-w-2xl text-base leading-relaxed text-fg-muted">
-            {isSanityConfigured()
-              ? "No published articles yet. Add Post documents in Sanity Studio."
-              : "Connect Sanity and publish posts to populate the blog."}
-          </p>
+          <EmptyState
+            className="mt-0"
+            title="Writing will appear here."
+            description="New articles on software, websites, and automation will be published here. In the meantime, explore our services or book a conversation."
+            actions={
+              <>
+                <Button href="/book">Book Consultation</Button>
+                <Button href="/services" variant="secondary">
+                  View services
+                </Button>
+              </>
+            }
+          />
         )}
       </Container>
     </>
