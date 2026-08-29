@@ -93,15 +93,15 @@ export const caseStudies: CaseStudy[] = [
     href: "https://the-savoury-lab.vercel.app",
     image: {
       src: "/images/case-studies/the-savoury-lab.jpg",
-      alt: "The Savoury Lab public homepage",
+      alt: "The Savoury Lab public catalogue",
     },
     theme: {
-      background: "#111111",
-      foreground: "#f4f1ea",
-      muted: "#c4c0b6",
+      background: "#ffffff",
+      foreground: "#111111",
+      muted: "#6b6b6b",
       accent: "#c79a52",
-      border: "#2a2a2a",
-      panel: "#1a1a1a",
+      border: "#e8e8e8",
+      panel: "#f4f4f4",
     },
   },
   {
