@@ -5,9 +5,10 @@ import { ServiceGrid } from "@/components/marketing/service-grid";
 import { ProcessSteps } from "@/components/marketing/process-steps";
 import { TestimonialList } from "@/components/marketing/testimonial-list";
 import { CtaBand } from "@/components/marketing/cta-band";
-import { ProjectCard } from "@/components/content/project-card";
+import { CaseStudyCard } from "@/components/content/case-study-card";
 import { Button } from "@/components/ui/button";
-import { getProjects, getTestimonials } from "@/lib/content/data";
+import { getTestimonials } from "@/lib/content/data";
+import { caseStudies } from "@/lib/content/case-studies";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import { services } from "@/lib/content/services";
 
@@ -20,9 +21,7 @@ export const metadata: Metadata = {
 const FEATURED_SERVICE_SLUGS = ["landing-pages", "business-website", "custom-software"] as const;
 
 export default async function HomePage() {
-  const [testimonials, projects] = await Promise.all([getTestimonials(), getProjects()]);
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
-  const portfolioPreview = featuredProjects.length ? featuredProjects : projects.slice(0, 3);
+  const testimonials = await getTestimonials();
   const featuredServices = FEATURED_SERVICE_SLUGS.map((slug) =>
     services.find((service) => service.slug === slug),
   ).filter((service): service is (typeof services)[number] => Boolean(service));
@@ -34,20 +33,14 @@ export default async function HomePage() {
       <Section id="portfolio">
         <SectionHeading
           eyebrow="Work"
-          title={portfolioPreview.length ? "Selected work." : "Selected work, coming into view."}
-          description={
-            portfolioPreview.length
-              ? "Case studies covering overview, problem, solution, tech stack, and results."
-              : "Case studies will appear here once published in Sanity Studio."
-          }
+          title="Selected work."
+          description="Selected live work."
         />
-        {portfolioPreview.length ? (
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {portfolioPreview.map((project) => (
-              <ProjectCard key={project._id} project={project} />
-            ))}
-          </div>
-        ) : null}
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {caseStudies.map((study) => (
+            <CaseStudyCard key={study.slug} study={study} />
+          ))}
+        </div>
         <div className="mt-8">
           <Button href="/portfolio" variant="secondary">
             View portfolio
