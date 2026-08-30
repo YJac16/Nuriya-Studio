@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CONTACT_EMAIL } from "@/lib/constants";
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from "@/lib/constants";
 import { PageIntro } from "@/components/marketing/page-intro";
 import { ContactForm } from "@/components/forms/contact-form";
 import { QuoteForm } from "@/components/forms/quote-form";
@@ -29,14 +29,14 @@ export default async function ContactPage({ searchParams }: Props) {
           <div className="mt-6">
             <ContactForm />
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button href="/book" variant="secondary">
               Book Consultation
             </Button>
             <Button href={`mailto:${CONTACT_EMAIL}`} external variant="ghost">
               {CONTACT_EMAIL}
             </Button>
-            <WhatsAppButton />
+            <WhatsAppButton label={CONTACT_WHATSAPP_DISPLAY} />
           </div>
         </div>
         <div>

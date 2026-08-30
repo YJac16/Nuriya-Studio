@@ -10,7 +10,10 @@ export const LOGO_MARK = "/images/nuriya-logo-no-background.png";
 /** Full lockup — mark + Nūriya + STUDIOS (transparent edges) */
 export const LOGO_LOCKUP = "/images/nuriya-logo-and-name-no-background.png";
 
-export const CONTACT_EMAIL = "hello@nuriyastudio.com";
+export const CONTACT_EMAIL = "yaseenjacobs97@gmail.com";
+/** Digits only, country code, no + — used for wa.me links */
+export const CONTACT_WHATSAPP_NUMBER = "27823277446";
+export const CONTACT_WHATSAPP_DISPLAY = "+27 82 327 7446";
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
@@ -44,7 +47,9 @@ export function getSiteUrl(): string {
 }
 
 export function getWhatsAppUrl(): string | null {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
+  const number =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ||
+    CONTACT_WHATSAPP_NUMBER;
   if (!number) return null;
   return `https://wa.me/${number}`;
 }

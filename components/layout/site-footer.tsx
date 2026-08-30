@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CONTACT_EMAIL,
+  CONTACT_WHATSAPP_DISPLAY,
   FOOTER_LINKS,
   LOGO_MARK,
   SITE_NAME,
   SITE_SHORT_NAME,
   SITE_TAGLINE,
+  getWhatsAppUrl,
 } from "@/lib/constants";
 import { Container } from "@/components/ui/container";
 
@@ -44,6 +46,16 @@ export function SiteFooter() {
             >
               {CONTACT_EMAIL}
             </a>
+            {getWhatsAppUrl() ? (
+              <a
+                href={getWhatsAppUrl()!}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block text-sm text-fg transition-opacity hover:opacity-70"
+              >
+                WhatsApp {CONTACT_WHATSAPP_DISPLAY}
+              </a>
+            ) : null}
           </div>
 
           {(

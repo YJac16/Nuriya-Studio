@@ -11,7 +11,7 @@ Copy from [`.env.example`](../.env.example) into Railway **production** variable
 | `NEXT_PUBLIC_SITE_URL` | Canonical URLs, sitemap, OG | Set to production domain |
 | `RESEND_API_KEY` | Contact, quote, booking emails | Required for form delivery |
 | `RESEND_FROM_EMAIL` | Outbound email sender | After Resend domain verification |
-| `CONTACT_TO_EMAIL` | Inbox for leads | Defaults to hello@nuriyastudio.com |
+| `CONTACT_TO_EMAIL` | Inbox for leads | Defaults to yaseenjacobs97@gmail.com |
 | `NEXT_PUBLIC_SUPABASE_URL` | Booking + waitlist storage | Required for book/waitlist |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client-side Supabase | Required for book/waitlist |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-side Supabase | Required for API routes |

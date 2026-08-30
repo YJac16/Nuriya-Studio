@@ -3,6 +3,8 @@ import type { CaseStudy } from "@/lib/content/case-studies";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const { theme } = study;
+  const mobileImage = study.imageMobile ?? study.image;
+  const desktopImage = study.imageDesktop ?? study.image;
 
   return (
     <article
@@ -13,18 +15,29 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         borderColor: theme.border,
       }}
     >
-      {study.image ? (
+      {mobileImage || desktopImage ? (
         <div
           className="relative aspect-[3/2] w-full overflow-hidden"
           style={{ backgroundColor: theme.panel }}
         >
-          <Image
-            src={study.image.src}
-            alt={study.image.alt}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          />
+          {mobileImage ? (
+            <Image
+              src={mobileImage.src}
+              alt={mobileImage.alt}
+              fill
+              className="object-cover object-top md:hidden"
+              sizes="100vw"
+            />
+          ) : null}
+          {desktopImage ? (
+            <Image
+              src={desktopImage.src}
+              alt={desktopImage.alt}
+              fill
+              className={`object-cover object-top ${mobileImage ? "hidden md:block" : ""}`}
+              sizes="(max-width: 1280px) 50vw, 33vw"
+            />
+          ) : null}
         </div>
       ) : (
         <div

@@ -7,6 +7,11 @@ export type CaseStudyTheme = {
   panel: string;
 };
 
+export type CaseStudyImage = {
+  src: string;
+  alt: string;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -15,10 +20,10 @@ export type CaseStudy = {
   built: string;
   result: string;
   href: string;
-  image?: {
-    src: string;
-    alt: string;
-  };
+  /** @deprecated Use imageMobile / imageDesktop */
+  image?: CaseStudyImage;
+  imageMobile?: CaseStudyImage;
+  imageDesktop?: CaseStudyImage;
   theme: CaseStudyTheme;
 };
 
@@ -32,9 +37,13 @@ export const caseStudies: CaseStudy[] = [
     built: "Live site with native booking, patient and admin, and invoices.",
     result: "Live at fouzaphysiotherapy.co.za.",
     href: "https://fouzaphysiotherapy.co.za",
-    image: {
-      src: "/images/case-studies/fouza-physiotherapy.jpg",
-      alt: "Fouza Physiotherapy public homepage",
+    imageMobile: {
+      src: "/images/case-studies/fouza-physiotherapy-mobile.jpg",
+      alt: "Fouza Physiotherapy public booking calendar on mobile",
+    },
+    imageDesktop: {
+      src: "/images/case-studies/fouza-physiotherapy-desktop.jpg",
+      alt: "Fouza Physiotherapy public booking calendar on desktop",
     },
     theme: {
       background: "#f7fbfc",
@@ -53,9 +62,13 @@ export const caseStudies: CaseStudy[] = [
     built: "Live site with catalogue coverflows for home, experiences, and fleet.",
     result: "Live at moveinafrica.co.za.",
     href: "https://moveinafrica.co.za",
-    image: {
-      src: "/images/case-studies/move-in-africa.jpg",
-      alt: "Move in Africa public homepage",
+    imageMobile: {
+      src: "/images/case-studies/move-in-africa-mobile.jpg",
+      alt: "Move in Africa fleet coverflow carousel on mobile",
+    },
+    imageDesktop: {
+      src: "/images/case-studies/move-in-africa-desktop.jpg",
+      alt: "Move in Africa fleet coverflow carousel on desktop",
     },
     theme: {
       background: "#1a1f24",
@@ -91,9 +104,13 @@ export const caseStudies: CaseStudy[] = [
     built: "Live storefront with product catalogue and WhatsApp order.",
     result: "Live at https://the-savoury-lab.vercel.app",
     href: "https://the-savoury-lab.vercel.app",
-    image: {
-      src: "/images/case-studies/the-savoury-lab.jpg",
-      alt: "The Savoury Lab public catalogue",
+    imageMobile: {
+      src: "/images/case-studies/the-savoury-lab-mobile.jpg",
+      alt: "The Savoury Lab catalogue carousel with prices and WhatsApp order on mobile",
+    },
+    imageDesktop: {
+      src: "/images/case-studies/the-savoury-lab-desktop.jpg",
+      alt: "The Savoury Lab catalogue carousel with prices and WhatsApp order on desktop",
     },
     theme: {
       background: "#ffffff",
@@ -112,9 +129,13 @@ export const caseStudies: CaseStudy[] = [
     built: "Live events site on a custom domain, WhatsApp booking.",
     result: "Live at https://metanoiaeventscollective.co.za",
     href: "https://metanoiaeventscollective.co.za",
-    image: {
-      src: "/images/case-studies/metanoia-events-collective.jpg",
-      alt: "Metanoia Events Collective public homepage",
+    imageMobile: {
+      src: "/images/case-studies/metanoia-events-collective-mobile.jpg",
+      alt: "Metanoia Events Collective services gallery carousel on mobile",
+    },
+    imageDesktop: {
+      src: "/images/case-studies/metanoia-events-collective-desktop.jpg",
+      alt: "Metanoia Events Collective services gallery carousel on desktop",
     },
     theme: {
       background: "#0b0b0b",
