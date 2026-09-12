@@ -52,7 +52,7 @@ export default async function HomePage() {
         <SectionHeading
           eyebrow="Services"
           title="Packages built for clarity and delivery."
-          description="From launch pages to custom software — priced transparently, scoped cleanly."
+          description="From launch pages to custom software — scoped cleanly, quoted after discovery."
         />
         <ServiceGrid items={featuredServices} />
         <div className="mt-8">

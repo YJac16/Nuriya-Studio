@@ -17,18 +17,11 @@ export function OneTimePricing({ className }: { className?: string }) {
             <p className="mt-2 text-sm text-fg-muted">{service.summary}</p>
           </div>
           <div>
-            <p className="font-mono text-sm text-fg">
-              {service.pricePrefix ? `${service.pricePrefix} ` : null}
-              {service.priceLabel}
-            </p>
-            <p className="mt-1 text-xs text-fg-muted">{service.delivery}</p>
+            <p className="font-mono text-sm text-fg">Delivery · {service.delivery}</p>
+            <p className="mt-1 text-xs text-fg-muted">Quoted after discovery</p>
           </div>
-          <Button
-            href={service.quotationRequired ? "/contact" : `/services/${service.slug}`}
-            variant="secondary"
-            className="w-full sm:w-auto"
-          >
-            {service.quotationRequired ? "Request quote" : "Details"}
+          <Button href="/contact" variant="secondary" className="w-full sm:w-auto">
+            Request quote
           </Button>
         </li>
       ))}
@@ -51,10 +44,6 @@ export function MonthlyPricing({ className }: { className?: string }) {
             {plan.highlighted ? "Popular" : "Plan"}
           </p>
           <h3 className="mt-3 font-display text-2xl text-fg">{plan.name}</h3>
-          <p className="mt-3 font-mono text-lg text-fg">
-            {plan.priceLabel}
-            <span className="text-sm text-fg-muted">/month</span>
-          </p>
           <p className="mt-3 text-sm text-fg-muted">{plan.description}</p>
           <ul className="mt-6 space-y-2 text-sm text-fg">
             {plan.features.map((feature) => (
@@ -70,7 +59,7 @@ export function MonthlyPricing({ className }: { className?: string }) {
             href="/contact"
             className="mt-8 inline-flex min-h-11 items-center text-sm font-medium text-fg underline-offset-4 hover:underline"
           >
-            Start {plan.name}
+            Request quote
           </Link>
         </li>
       ))}

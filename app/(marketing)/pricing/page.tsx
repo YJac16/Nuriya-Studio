@@ -12,7 +12,7 @@ import { faqJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent packages from R2,499 and monthly plans from R299 for websites, booking systems, and custom software.",
+    "Website, booking, and custom software packages from Nūriya Studios — scoped and quoted after discovery.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -24,7 +24,7 @@ export default async function PricingPage() {
       {faqs.length ? <JsonLd data={faqJsonLd(faqs)} /> : null}
       <PageIntro
         title="Pricing"
-        description="Transparent packages and monthly plans. Enterprise and custom software are quoted after discovery."
+        description="Clear package scopes and monthly care plans. Every engagement is quoted after discovery."
       />
       <Container className="py-16">
         <h2 className="font-display text-3xl text-fg">One-time packages</h2>

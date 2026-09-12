@@ -77,7 +77,7 @@ export default async function SolutionDetailPage({ params }: Props) {
                     >
                       {service.name}
                       <span className="ml-2 font-mono text-xs text-fg-muted">
-                        {service.priceLabel}
+                        {service.delivery}
                       </span>
                     </Link>
                   </li>
