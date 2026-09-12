@@ -93,7 +93,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           className="mt-auto pt-6 text-sm font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:underline"
           style={{ color: theme.foreground }}
         >
-          Visit site
+          {study.linkLabel ?? "Visit site"}
         </a>
       </div>
     </article>

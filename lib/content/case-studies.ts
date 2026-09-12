@@ -20,6 +20,7 @@ export type CaseStudy = {
   built: string;
   result: string;
   href: string;
+  linkLabel?: string;
   /** @deprecated Use imageMobile / imageDesktop */
   image?: CaseStudyImage;
   imageMobile?: CaseStudyImage;
@@ -80,13 +81,14 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
-    slug: "workops",
-    title: "WorkOps",
-    label: "Custom software",
-    problem: "Small transport teams run drivers, trips, and invoices in spreadsheets.",
-    built: "Invite-only multi-tenant ops: role hubs, trips, GPS, invoices, membership.",
-    result: "Live invite-only platform.",
-    href: "https://workops-mu.vercel.app",
+    slug: "goops",
+    title: "GoOps",
+    label: "Operations platform",
+    problem: "Small transport teams run drivers, trips, GPS, and invoices in spreadsheets.",
+    built: "Invite-only multi-tenant ops for drivers, trips, GPS tracking, and invoicing.",
+    result: "Live in production — invite-only platform.",
+    href: "https://workops-mu.vercel.app/login",
+    linkLabel: "Product login",
     theme: {
       background: "#0b0f17",
       foreground: "#f3f4f6",

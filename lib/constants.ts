@@ -1,9 +1,9 @@
 export const SITE_NAME = "Nūriya Studios";
 export const SITE_SHORT_NAME = "Nūriya";
 export const SITE_TAGLINE =
-  "A software studio building digital products that help businesses grow.";
+  "We design and build the digital systems SMEs actually run on — sites, booking, and ops.";
 export const SITE_DESCRIPTION =
-  "Nūriya Studios builds websites, business software, booking systems, and AI automation for growing businesses.";
+  "Nūriya Studios designs and builds websites, booking systems, and operational software for SMEs — live in production.";
 
 /** Mark only — circular emblem (transparent edges) */
 export const LOGO_MARK = "/images/nuriya-logo-no-background.png";
