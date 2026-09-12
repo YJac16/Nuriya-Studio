@@ -34,7 +34,7 @@ export default async function HomePage() {
         <SectionHeading
           eyebrow="Work"
           title="Selected work."
-          description="Selected live work."
+          description="Live in production — sites, booking, and ops we have shipped."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {caseStudies.map((study) => (

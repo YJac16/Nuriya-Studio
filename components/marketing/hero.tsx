@@ -27,12 +27,15 @@ export function Hero() {
             className="logo-asset h-auto w-[11rem] object-contain sm:w-[13.5rem]"
           />
           <h1 className="sr-only">{SITE_NAME}</h1>
-          <p className="mt-8 max-w-xl font-display text-3xl leading-[1.15] tracking-tight text-fg sm:text-4xl lg:text-5xl">
-            Digital products that help businesses grow.
+          <p className="mt-8 max-w-2xl font-display text-3xl leading-[1.15] tracking-tight text-fg sm:text-4xl lg:text-[2.75rem]">
+            We design and build the digital systems SMEs actually run on — sites, booking,
+            and ops.
           </p>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-fg/75 sm:text-lg">
-            Websites, software, and automation — built to be fast, reliable, and ready to
-            scale.
+            Fast, reliable software scoped for how small teams work — not slide decks.
+          </p>
+          <p className="mt-4 font-mono text-xs tracking-wide text-fg/60 uppercase">
+            Live in production
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Button href="/book">Book Consultation</Button>

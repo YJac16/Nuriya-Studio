@@ -16,7 +16,7 @@ const fallbackBrands = [
   {
     name: SITE_NAME,
     role: "Software",
-    description: "Digital products that help businesses grow.",
+    description: "Sites, booking, and operational software for SMEs.",
     href: "/",
     image: LOGO_MARK,
     external: false,
