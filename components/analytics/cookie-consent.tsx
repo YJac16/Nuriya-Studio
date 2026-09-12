@@ -38,7 +38,8 @@ export function CookieConsent() {
         <div
           role="dialog"
           aria-label="Cookie consent"
-          className="fixed inset-x-0 bottom-0 z-[60] border-t border-border bg-bg/95 p-4 backdrop-blur-md sm:p-5"
+          className="fixed inset-x-0 bottom-0 border-t border-border bg-bg/95 p-4 backdrop-blur-md sm:p-5"
+          style={{ zIndex: "var(--z-cookie)" }}
         >
           <div className="mx-auto flex w-full max-w-content flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl text-sm leading-relaxed text-fg-muted">

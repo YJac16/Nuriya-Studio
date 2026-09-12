@@ -37,8 +37,8 @@ export default async function HomePage() {
           description="Selected live work."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {caseStudies.map((study) => (
-            <CaseStudyCard key={study.slug} study={study} />
+          {caseStudies.map((study, index) => (
+            <CaseStudyCard key={study.slug} study={study} index={index} />
           ))}
         </div>
         <div className="mt-8">

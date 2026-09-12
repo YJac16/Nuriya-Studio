@@ -23,9 +23,7 @@ export function Section({
         className,
       )}
     >
-      <Container>
-        <Reveal>{children}</Reveal>
-      </Container>
+      <Container>{children}</Container>
     </section>
   );
 }
@@ -42,18 +40,14 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl", className)}>
+    <Reveal variant="text" className={cn("max-w-2xl", className)}>
       {eyebrow ? (
         <p className="font-mono text-xs tracking-wide text-accent uppercase">{eyebrow}</p>
       ) : null}
-      <h2 className="mt-3 font-display text-3xl tracking-tight text-fg sm:text-4xl">
-        {title}
-      </h2>
+      <h2 className="mt-3 font-display text-3xl tracking-tight text-fg sm:text-4xl">{title}</h2>
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-fg-muted sm:text-lg">
-          {description}
-        </p>
+        <p className="mt-4 text-base leading-relaxed text-fg-muted sm:text-lg">{description}</p>
       ) : null}
-    </div>
+    </Reveal>
   );
 }

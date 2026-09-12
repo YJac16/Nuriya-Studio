@@ -16,8 +16,8 @@ export default function PortfolioPage() {
       <PageIntro title="Portfolio" description="Selected live work." />
       <Container className="py-16">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {caseStudies.map((study) => (
-            <CaseStudyCard key={study.slug} study={study} />
+          {caseStudies.map((study, index) => (
+            <CaseStudyCard key={study.slug} study={study} index={index} />
           ))}
         </div>
       </Container>

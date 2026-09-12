@@ -16,10 +16,16 @@ export const CONTACT_WHATSAPP_NUMBER = "27823277446";
 export const CONTACT_WHATSAPP_DISPLAY = "+27 82 327 7446";
 
 export const NAV_LINKS = [
-  { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Work" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
+] as const;
+
+export const NAV_SERVICES_DROPDOWN = [
+  { href: "/services/landing-pages", label: "Landing Pages" },
+  { href: "/services/business-website", label: "Business Website" },
+  { href: "/services/booking-system", label: "Booking System" },
+  { href: "/services/custom-software", label: "Custom Software" },
+  { href: "/services/enterprise", label: "Enterprise" },
 ] as const;
 
 export const FOOTER_LINKS = {
