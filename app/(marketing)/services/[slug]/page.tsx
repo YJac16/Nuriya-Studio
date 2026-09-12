@@ -36,18 +36,13 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  const priceLine = service.pricePrefix
-    ? `${service.pricePrefix} ${service.priceLabel}`
-    : service.priceLabel;
-
   return (
     <>
       <JsonLd data={serviceJsonLd(service)} />
       <PageIntro title={service.name} description={service.summary} />
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <p className="font-mono text-sm text-accent">{priceLine}</p>
-          <p className="mt-2 text-sm text-fg-muted">Delivery · {service.delivery}</p>
+          <p className="font-mono text-sm text-accent">Delivery · {service.delivery}</p>
           <p className="mt-6 text-base leading-relaxed text-fg-muted">{service.idealFor}</p>
 
           <h2 className="mt-10 font-display text-2xl text-fg">Includes</h2>

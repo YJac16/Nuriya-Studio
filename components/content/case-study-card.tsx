@@ -86,15 +86,6 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             </dd>
           </div>
         </dl>
-        <a
-          href={study.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-auto pt-6 text-sm font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:underline"
-          style={{ color: theme.foreground }}
-        >
-          {study.linkLabel ?? "Visit site"}
-        </a>
       </div>
     </article>
   );

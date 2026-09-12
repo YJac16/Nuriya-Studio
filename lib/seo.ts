@@ -58,16 +58,6 @@ export function serviceJsonLd(service: (typeof services)[number]) {
     },
     areaServed: "ZA",
     url: absoluteUrl(`/services/${service.slug}`),
-    ...(service.priceAmount
-      ? {
-          offers: {
-            "@type": "Offer",
-            price: service.priceAmount,
-            priceCurrency: "ZAR",
-            url: absoluteUrl(`/services/${service.slug}`),
-          },
-        }
-      : {}),
   };
 }
 

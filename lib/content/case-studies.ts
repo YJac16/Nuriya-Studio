@@ -19,8 +19,6 @@ export type CaseStudy = {
   problem: string;
   built: string;
   result: string;
-  href: string;
-  linkLabel?: string;
   /** @deprecated Use imageMobile / imageDesktop */
   image?: CaseStudyImage;
   imageMobile?: CaseStudyImage;
@@ -36,8 +34,7 @@ export const caseStudies: CaseStudy[] = [
     label: "Booking",
     problem: "A Cape Town clinic needed patients to book on their own site.",
     built: "Live site with native booking, patient and admin, and invoices.",
-    result: "Live at fouzaphysiotherapy.co.za.",
-    href: "https://fouzaphysiotherapy.co.za",
+    result: "Live booking site for Fouza Physiotherapy.",
     imageMobile: {
       src: "/images/case-studies/fouza-physiotherapy-mobile.jpg",
       alt: "Fouza Physiotherapy public booking calendar on mobile",
@@ -61,8 +58,7 @@ export const caseStudies: CaseStudy[] = [
     label: "Tours / ops site",
     problem: "A Cape transport operator needed fleet and experiences on the web, not a PDF.",
     built: "Live site with catalogue coverflows for home, experiences, and fleet.",
-    result: "Live at moveinafrica.co.za.",
-    href: "https://moveinafrica.co.za",
+    result: "Live fleet and experiences site for Move in Africa.",
     imageMobile: {
       src: "/images/case-studies/move-in-africa-mobile.jpg",
       alt: "Move in Africa fleet coverflow carousel on mobile",
@@ -86,9 +82,15 @@ export const caseStudies: CaseStudy[] = [
     label: "Operations platform",
     problem: "Small transport teams run drivers, trips, GPS, and invoices in spreadsheets.",
     built: "Invite-only multi-tenant ops for drivers, trips, GPS tracking, and invoicing.",
-    result: "Live in production — invite-only platform.",
-    href: "https://workops-mu.vercel.app/login",
-    linkLabel: "Product login",
+    result: "Live in production — invite-only platform for transport teams.",
+    imageMobile: {
+      src: "/images/case-studies/goops-mobile.jpg",
+      alt: "GoOps login and role hub on mobile",
+    },
+    imageDesktop: {
+      src: "/images/case-studies/goops-desktop.jpg",
+      alt: "GoOps login and role hub on desktop",
+    },
     theme: {
       background: "#0b0f17",
       foreground: "#f3f4f6",
@@ -104,8 +106,7 @@ export const caseStudies: CaseStudy[] = [
     label: "Food storefront",
     problem: "A food brand needed a live catalogue so customers can order without a paper menu.",
     built: "Live storefront with product catalogue and WhatsApp order.",
-    result: "Live at https://the-savoury-lab.vercel.app",
-    href: "https://the-savoury-lab.vercel.app",
+    result: "Live storefront for The Savoury Lab.",
     imageMobile: {
       src: "/images/case-studies/the-savoury-lab-mobile.jpg",
       alt: "The Savoury Lab catalogue carousel with prices and WhatsApp order on mobile",
@@ -129,8 +130,7 @@ export const caseStudies: CaseStudy[] = [
     label: "Events site",
     problem: "A Cape Town events collective needed a custom-domain site people can actually book from.",
     built: "Live events site on a custom domain, WhatsApp booking.",
-    result: "Live at https://metanoiaeventscollective.co.za",
-    href: "https://metanoiaeventscollective.co.za",
+    result: "Live events site for Metanoia Events Collective.",
     imageMobile: {
       src: "/images/case-studies/metanoia-events-collective-mobile.jpg",
       alt: "Metanoia Events Collective services gallery carousel on mobile",
