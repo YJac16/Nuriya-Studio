@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/constants";
+import { NavDropdown } from "@/components/layout/nav-dropdown";
+import { NAV_LINKS, NAV_SERVICES_DROPDOWN } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function DesktopNav() {
@@ -19,7 +20,7 @@ export function DesktopNav() {
             href={link.href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "min-h-10 px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+              "relative min-h-10 px-3 py-2 text-sm transition-colors after:absolute after:inset-x-3 after:bottom-1.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
               active ? "font-medium text-fg" : "text-fg/80 hover:text-fg",
             )}
           >
@@ -27,6 +28,13 @@ export function DesktopNav() {
           </Link>
         );
       })}
+
+      <NavDropdown
+        label="Services"
+        href="/services"
+        items={NAV_SERVICES_DROPDOWN}
+        footerLink={{ href: "/services", label: "All services" }}
+      />
     </nav>
   );
 }

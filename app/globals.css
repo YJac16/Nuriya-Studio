@@ -10,6 +10,13 @@
   --border: #ddd4c4;
   --accent: #3d2f1f;
   --accent-fg: #f5f1e8;
+  --header-height: 4.25rem;
+  --z-nav: 50;
+  --z-nav-progress: 51;
+  --z-mobile-nav: 55;
+  --z-nav-dropdown: 60;
+  --z-cookie: 70;
+  --z-skip: 100;
   --hero-glow: radial-gradient(
       60% 50% at 15% 10%,
       rgba(61, 47, 31, 0.06),
@@ -64,6 +71,10 @@
   /* Dark ink logos → cream on dark surfaces */
   .logo-asset {
     @apply dark:brightness-0 dark:invert;
+  }
+
+  .scroll-progress-fill {
+    transform: scaleX(var(--scroll-progress, 0));
   }
 }
 
