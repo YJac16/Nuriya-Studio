@@ -3,19 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DesktopNav } from "@/components/layout/desktop-nav";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { LOGO_MARK, SITE_NAME, SITE_SHORT_NAME } from "@/lib/constants";
+import { CTA_QUOTE, LOGO_MARK, SITE_NAME, SITE_SHORT_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,10 +25,40 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const syncHeaderHeight = () => {
+      document.documentElement.style.setProperty(
+        "--site-header-height",
+        `${header.getBoundingClientRect().height}px`,
+      );
+    };
+
+    syncHeaderHeight();
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+    window.addEventListener("scroll", syncHeaderHeight, { passive: true });
+    window.addEventListener("resize", syncHeaderHeight);
+    window.visualViewport?.addEventListener("resize", syncHeaderHeight);
+    window.visualViewport?.addEventListener("scroll", syncHeaderHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", syncHeaderHeight);
+      window.removeEventListener("resize", syncHeaderHeight);
+      window.visualViewport?.removeEventListener("resize", syncHeaderHeight);
+      window.visualViewport?.removeEventListener("scroll", syncHeaderHeight);
+    };
+  }, []);
+
   const solid = !isHome || scrolled;
 
   return (
     <header
+      ref={headerRef}
+      id="site-header"
       className={cn(
         "sticky top-0 z-50 transition-colors duration-300",
         solid
@@ -63,8 +94,8 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1">
           <ThemeToggle />
-          <Button href="/book" className="hidden sm:inline-flex" variant="primary">
-            Book
+          <Button href={CTA_QUOTE.href} className="hidden sm:inline-flex" variant="primary">
+            Request quote
           </Button>
           <MobileNav />
         </div>

@@ -89,13 +89,13 @@ export default async function SolutionDetailPage({ params }: Props) {
         <aside className="border border-border bg-bg-elevated p-6 sm:p-8">
           <h2 className="font-display text-2xl text-fg">Talk through your use case</h2>
           <p className="mt-3 text-sm leading-relaxed text-fg-muted">
-            Book a consultation or request a quote — we will recommend a package that fits
+            Request a quote or book a consultation — we will recommend a package that fits
             how {solution.name.toLowerCase()} actually operate.
           </p>
           <div className="mt-6 flex flex-col gap-3">
-            <Button href="/book">Book Consultation</Button>
+            <Button href="/contact#quote">Request a quote</Button>
             <Button href="/contact" variant="secondary">
-              Request Quote
+              Book a consultation
             </Button>
             <WhatsAppButton className="justify-center" />
           </div>

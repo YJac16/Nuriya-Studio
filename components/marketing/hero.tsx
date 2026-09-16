@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LOGO_LOCKUP, LOGO_MARK, SITE_NAME } from "@/lib/constants";
+import { CTA_CONSULT, CTA_QUOTE, LOGO_LOCKUP, LOGO_MARK, SITE_NAME } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
@@ -38,8 +38,11 @@ export function Hero() {
             Live in production
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Button href="/book">Book Consultation</Button>
-            <Button href="/portfolio" variant="secondary">
+            <Button href={CTA_QUOTE.href}>{CTA_QUOTE.label}</Button>
+            <Button href={CTA_CONSULT.href} variant="secondary">
+              {CTA_CONSULT.label}
+            </Button>
+            <Button href="/portfolio" variant="ghost">
               View work
             </Button>
           </div>

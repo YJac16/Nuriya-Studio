@@ -137,9 +137,9 @@ export default async function PortfolioDetailPage({ params }: Props) {
         <PortableBody value={project.body} />
 
         <div className="flex flex-wrap gap-3 border-t border-border pt-8">
-          <Button href="/book">Book Consultation</Button>
+          <Button href="/contact#quote">Request a quote</Button>
           <Button href="/contact" variant="secondary">
-            Request Quote
+            Book a consultation
           </Button>
           <WhatsAppButton />
         </div>

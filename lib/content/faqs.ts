@@ -22,6 +22,6 @@ export const faqs = [
   {
     question: "How do quotes and consultations work?",
     answer:
-      "Book a consultation or request a quote. We confirm scope, timeline, and investment before any build starts.",
+      "Request a quote or book a consultation via our contact page. We confirm scope, timeline, and investment before any build starts.",
   },
 ] as const;
