@@ -3,15 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
+const HEADER_HEIGHT = "4.25rem";
+
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -74,49 +82,58 @@ export function MobileNav() {
         </svg>
       </button>
 
-      {open ? (
-        <button
-          type="button"
-          aria-label="Close menu"
-          className="fixed inset-0 top-[4.25rem] z-30 bg-fg/20 md:hidden"
-          onClick={closeMenu}
-        />
-      ) : null}
+      {mounted
+        ? createPortal(
+            <>
+              {open ? (
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  className="fixed inset-0 z-30 bg-fg/20 md:hidden"
+                  style={{ top: HEADER_HEIGHT }}
+                  onClick={closeMenu}
+                />
+              ) : null}
 
-      <div
-        id={panelId}
-        className={cn(
-          "fixed inset-x-0 top-[4.25rem] bottom-0 z-40 overflow-y-auto border-b border-border bg-bg px-5 py-8 transition-all duration-200",
-          open ? "visible opacity-100" : "invisible pointer-events-none opacity-0",
-        )}
-      >
-        <nav aria-label="Mobile" className="flex flex-col gap-1">
-          {NAV_LINKS.map((link) => {
-            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
+              <div
+                id={panelId}
                 className={cn(
-                  "min-h-12 px-2 py-3 text-lg transition-colors",
-                  active ? "font-medium text-fg" : "text-fg/80 hover:text-fg",
+                  "fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-b border-border bg-bg px-5 py-8 transition-all duration-200 md:hidden",
+                  open ? "visible opacity-100" : "invisible pointer-events-none opacity-0",
                 )}
+                style={{ top: HEADER_HEIGHT }}
               >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="mt-8 flex flex-col gap-3">
-          <Button href="/book" className="w-full">
-            Book Consultation
-          </Button>
-          <Button href="/contact" variant="secondary" className="w-full">
-            Request Quote
-          </Button>
-        </div>
-      </div>
+                <nav aria-label="Mobile" className="flex flex-col gap-1">
+                  {NAV_LINKS.map((link) => {
+                    const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        aria-current={active ? "page" : undefined}
+                        className={cn(
+                          "min-h-12 px-2 py-3 text-lg transition-colors",
+                          active ? "font-medium text-fg" : "text-fg/80 hover:text-fg",
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
+                </nav>
+                <div className="mt-8 flex flex-col gap-3">
+                  <Button href="/book" className="w-full">
+                    Book Consultation
+                  </Button>
+                  <Button href="/contact" variant="secondary" className="w-full">
+                    Request Quote
+                  </Button>
+                </div>
+              </div>
+            </>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
