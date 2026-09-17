@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please check the form fields." }, { status: 400 });
   }
 
-  if (parsed.data.company) {
+  if (parsed.data.website) {
     return NextResponse.json({ ok: true });
   }
 
@@ -35,9 +35,13 @@ export async function POST(request: Request) {
     text: [
       `Name: ${parsed.data.name}`,
       `Email: ${parsed.data.email}`,
+      `Company: ${parsed.data.company}`,
+      `Country / timezone: ${parsed.data.countryTimezone}`,
       `Phone: ${parsed.data.phone || "—"}`,
+      `Budget: ${parsed.data.budget || "—"}`,
+      `How they found us: ${parsed.data.referral || "—"}`,
       "",
-      parsed.data.message,
+      parsed.data.needs,
     ].join("\n"),
   });
 

@@ -8,6 +8,8 @@ import {
   SITE_NAME,
   SITE_SHORT_NAME,
   SITE_TAGLINE,
+  STUDIO_LOCATION_FOOTER,
+  STUDIO_RESPONSE_WINDOW,
   getWhatsAppUrl,
 } from "@/lib/constants";
 import { Container } from "@/components/ui/container";
@@ -40,6 +42,8 @@ export function SiteFooter() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-fg-muted">
               {SITE_TAGLINE}
             </p>
+            <p className="mt-3 text-sm text-fg-muted">{STUDIO_LOCATION_FOOTER}</p>
+            <p className="mt-1 text-xs text-fg-muted">{STUDIO_RESPONSE_WINDOW}</p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="mt-5 inline-block text-sm text-fg transition-opacity hover:opacity-70"

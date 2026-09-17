@@ -26,8 +26,10 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       email: String(form.get("email") || ""),
       phone: String(form.get("phone") || ""),
       company: String(form.get("company") || ""),
+      countryTimezone: String(form.get("countryTimezone") || ""),
       service: String(form.get("service") || ""),
       budget: String(form.get("budget") || ""),
+      referral: String(form.get("referral") || ""),
       message: String(form.get("message") || ""),
       website: String(form.get("website") || ""),
     };
@@ -80,6 +82,16 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           <Input id="quote-company" name="company" autoComplete="organization" />
         </div>
       </div>
+      <div>
+        <Label htmlFor="quote-country">Country / timezone</Label>
+        <Input
+          id="quote-country"
+          name="countryTimezone"
+          required
+          placeholder="e.g. South Africa (SAST)"
+          autoComplete="country-name"
+        />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <Label htmlFor="quote-service">Service</Label>
@@ -102,12 +114,23 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
             <option value="R5,000–R15,000">R5,000–R15,000</option>
             <option value="R15,000–R50,000">R15,000–R50,000</option>
             <option value="R50,000+">R50,000+</option>
+            <option value="International — quote in my currency">
+              International — quote in my currency
+            </option>
           </Select>
         </div>
       </div>
       <div>
         <Label htmlFor="quote-message">Project details</Label>
         <Textarea id="quote-message" name="message" required />
+      </div>
+      <div>
+        <Label htmlFor="quote-referral">How you found us (optional)</Label>
+        <Input
+          id="quote-referral"
+          name="referral"
+          placeholder="Referral, search, social, etc."
+        />
       </div>
       <div className="hidden" aria-hidden="true">
         <Label htmlFor="quote-website">Website</Label>

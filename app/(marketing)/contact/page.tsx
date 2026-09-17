@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from "@/lib/constants";
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, STUDIO_LOCATION_DETAIL } from "@/lib/constants";
 import { PageIntro } from "@/components/marketing/page-intro";
 import { ContactForm } from "@/components/forms/contact-form";
 import { QuoteForm } from "@/components/forms/quote-form";
@@ -23,6 +23,9 @@ export default async function ContactPage({ searchParams }: Props) {
         title="Contact"
         description="Request a quote or book a consultation — we respond with clear next steps. No online self-booking; we confirm scope and timing by email."
       />
+      <Container className="pb-4 pt-2">
+        <p className="text-sm text-fg-muted">{STUDIO_LOCATION_DETAIL}</p>
+      </Container>
       <Container className="grid gap-16 py-16 lg:grid-cols-2">
         <div id="consult">
           <h2 className="font-display text-2xl text-fg">Book a consultation</h2>

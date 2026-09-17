@@ -12,7 +12,13 @@ export const LOGO_LOCKUP = "/images/nuriya-logo-and-name-no-background.png";
 
 export const SITE_URL = "https://nuriyastudios.com";
 
-export const CONTACT_EMAIL = "yaseenjacobs97@gmail.com";
+/** Public studio inbox shown on the site */
+export const CONTACT_EMAIL = "hello@nuriyastudios.com";
+export const STUDIO_LOCATION_FOOTER = "Cape Town · remote-friendly";
+export const STUDIO_LOCATION_DETAIL =
+  "Based in Cape Town, South Africa — we work with clients remotely.";
+export const STUDIO_RESPONSE_WINDOW =
+  "Replies typically within one business day (SAST, UTC+2).";
 /** Digits only, country code, no + — used for wa.me links */
 export const CONTACT_WHATSAPP_NUMBER = "27823277446";
 export const CONTACT_WHATSAPP_DISPLAY = "+27 82 327 7446";

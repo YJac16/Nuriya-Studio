@@ -6,6 +6,7 @@ import { CtaBand } from "@/components/marketing/cta-band";
 import { Section, SectionHeading } from "@/components/marketing/section";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { STUDIO_LOCATION_DETAIL } from "@/lib/constants";
 import { getTeamMembers } from "@/lib/content/data";
 import { urlForImage } from "@/lib/sanity/image";
 
@@ -25,6 +26,7 @@ export default async function AboutPage() {
         description="Nūriya Studios is a software studio building digital products that help businesses grow."
       />
       <Container className="space-y-8 py-16 text-base leading-relaxed text-fg-muted">
+        <p>{STUDIO_LOCATION_DETAIL}</p>
         <p>
           We build websites and custom systems for businesses every day. The patterns that
           prove themselves become products — platforms we keep refining and offer more
