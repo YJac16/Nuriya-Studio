@@ -27,7 +27,12 @@ export default async function PricingPage() {
         description="Clear package scopes and monthly care plans. Every engagement is quoted after discovery."
       />
       <Container className="py-16">
-        <h2 className="font-display text-3xl text-fg">One-time packages</h2>
+        <p className="max-w-3xl text-sm leading-relaxed text-fg-muted">
+          South African packages below are shown in ZAR for local reference. International
+          projects are quoted and billed in your currency via Stripe — no fixed USD price
+          list; we confirm scope and currency at quote stage.
+        </p>
+        <h2 className="mt-10 font-display text-3xl text-fg">One-time packages</h2>
         <OneTimePricing />
         <h2 className="mt-16 font-display text-3xl text-fg">Monthly plans</h2>
         <MonthlyPricing />

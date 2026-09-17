@@ -5,6 +5,7 @@ import { CONTACT_EMAIL } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -22,9 +23,13 @@ export function ContactForm() {
     const payload = {
       name: String(form.get("name") || ""),
       email: String(form.get("email") || ""),
-      phone: String(form.get("phone") || ""),
-      message: String(form.get("message") || ""),
       company: String(form.get("company") || ""),
+      countryTimezone: String(form.get("countryTimezone") || ""),
+      needs: String(form.get("needs") || ""),
+      budget: String(form.get("budget") || ""),
+      referral: String(form.get("referral") || ""),
+      phone: String(form.get("phone") || ""),
+      website: String(form.get("website") || ""),
     };
 
     try {
@@ -71,17 +76,61 @@ export function ContactForm() {
           />
         </div>
       </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="contact-company">Company</Label>
+          <Input id="contact-company" name="company" required autoComplete="organization" />
+        </div>
+        <div>
+          <Label htmlFor="contact-country">Country / timezone</Label>
+          <Input
+            id="contact-country"
+            name="countryTimezone"
+            required
+            placeholder="e.g. United Kingdom (GMT)"
+            autoComplete="country-name"
+          />
+        </div>
+      </div>
+      <div>
+        <Label htmlFor="contact-needs">What you need</Label>
+        <Textarea
+          id="contact-needs"
+          name="needs"
+          required
+          placeholder="Site, booking, ops — tell us what you are trying to solve."
+        />
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="contact-budget">Budget band (optional)</Label>
+          <Select id="contact-budget" name="budget" defaultValue="">
+            <option value="">Prefer not to say</option>
+            <option value="Under R5,000">Under R5,000</option>
+            <option value="R5,000–R15,000">R5,000–R15,000</option>
+            <option value="R15,000–R50,000">R15,000–R50,000</option>
+            <option value="R50,000+">R50,000+</option>
+            <option value="International — quote in my currency">
+              International — quote in my currency
+            </option>
+          </Select>
+        </div>
+        <div>
+          <Label htmlFor="contact-referral">How you found us (optional)</Label>
+          <Input
+            id="contact-referral"
+            name="referral"
+            placeholder="Referral, search, social, etc."
+          />
+        </div>
+      </div>
       <div>
         <Label htmlFor="contact-phone">Phone (optional)</Label>
         <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" />
       </div>
-      <div>
-        <Label htmlFor="contact-message">Message</Label>
-        <Textarea id="contact-message" name="message" required />
-      </div>
       <div className="hidden" aria-hidden="true">
-        <Label htmlFor="contact-company">Company</Label>
-        <Input id="contact-company" name="company" tabIndex={-1} autoComplete="off" />
+        <Label htmlFor="contact-website">Website</Label>
+        <Input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
       <Button type="submit" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Send message"}

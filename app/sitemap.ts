@@ -3,6 +3,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { services } from "@/lib/content/services";
 import { products } from "@/lib/content/products";
 import { solutions } from "@/lib/content/solutions";
+import { getCaseStudySlugs } from "@/lib/content/case-studies";
 import { getPostSlugs, getProjectSlugs, getResourceSlugs } from "@/lib/content/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -22,11 +23,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/terms",
   ];
 
-  const [projectSlugs, postSlugs, resourceSlugs] = await Promise.all([
+  const [projectSlugs, postSlugs, resourceSlugs, caseStudySlugs] = await Promise.all([
     getProjectSlugs(),
     getPostSlugs(),
     getResourceSlugs(),
+    Promise.resolve(getCaseStudySlugs()),
   ]);
+
+  const portfolioSlugs = [...new Set([...projectSlugs, ...caseStudySlugs])];
 
   const now = new Date();
 
@@ -55,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    ...projectSlugs.map((slug) => ({
+    ...portfolioSlugs.map((slug) => ({
       url: absoluteUrl(`/portfolio/${slug}`),
       lastModified: now,
       changeFrequency: "monthly" as const,
