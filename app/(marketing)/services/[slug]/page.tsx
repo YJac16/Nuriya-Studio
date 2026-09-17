@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { WhatsAppButton } from "@/components/forms/whatsapp-button";
+import { CTA_CONSULT, CTA_QUOTE } from "@/lib/constants";
 import { absoluteUrl, serviceJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -63,12 +64,16 @@ export default async function ServiceDetailPage({ params }: Props) {
           <p className="mt-3 text-sm leading-relaxed text-fg-muted">
             {service.quotationRequired
               ? "This package is quotation-based. Tell us about your requirements and we will respond with scope and investment."
-              : "Book a consultation or request a quote to confirm timeline and kickoff."}
+              : "Request a quote or book a consultation to confirm timeline and kickoff."}
           </p>
           <div className="mt-6 flex flex-col gap-3">
-            <Button href="/book">Book Consultation</Button>
-            <Button href={`/contact?service=${encodeURIComponent(service.name)}`} variant="secondary">
-              Request Quote
+            <Button
+              href={`/contact?service=${encodeURIComponent(service.name)}#quote`}
+            >
+              {CTA_QUOTE.label}
+            </Button>
+            <Button href={CTA_CONSULT.href} variant="secondary">
+              {CTA_CONSULT.label}
             </Button>
             <WhatsAppButton className="justify-center" />
           </div>

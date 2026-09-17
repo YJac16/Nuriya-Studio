@@ -3,19 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DesktopNav } from "@/components/layout/desktop-nav";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { LOGO_MARK, SITE_NAME, SITE_SHORT_NAME } from "@/lib/constants";
+import { CTA_QUOTE, LOGO_MARK, SITE_NAME, SITE_SHORT_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,15 +26,45 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = !isHome || scrolled;
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const syncHeaderHeight = () => {
+      // Use offsetHeight — stable layout height, unaffected by scroll/sticky breakage.
+      document.documentElement.style.setProperty(
+        "--site-header-height",
+        `${header.offsetHeight}px`,
+      );
+    };
+
+    syncHeaderHeight();
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+    window.addEventListener("resize", syncHeaderHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", syncHeaderHeight);
+    };
+  }, []);
+
+  const solid = !isHome || scrolled || mobileNavOpen;
 
   return (
     <header
+      ref={headerRef}
+      id="site-header"
       className={cn(
-        "sticky top-0 z-50 transition-colors duration-300",
-        solid
-          ? "border-b border-border bg-bg/95 backdrop-blur-sm"
-          : "border-b border-transparent bg-transparent",
+        "top-0 transition-colors duration-300",
+        mobileNavOpen
+          ? "fixed inset-x-0 z-[110] border-b border-border bg-bg"
+          : cn(
+              "sticky z-50",
+              solid
+                ? "border-b border-border bg-bg/95 backdrop-blur-sm"
+                : "border-b border-transparent bg-transparent",
+            ),
       )}
     >
       <Container className="flex h-[4.25rem] items-center justify-between gap-4">
@@ -63,10 +95,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1">
           <ThemeToggle />
-          <Button href="/book" className="hidden sm:inline-flex" variant="primary">
-            Book
+          <Button href={CTA_QUOTE.href} className="hidden sm:inline-flex" variant="primary">
+            Request quote
           </Button>
-          <MobileNav />
+          <MobileNav onOpenChange={setMobileNavOpen} />
         </div>
       </Container>
     </header>

@@ -21,25 +21,25 @@ export default async function ContactPage({ searchParams }: Props) {
     <>
       <PageIntro
         title="Contact"
-        description="Send a message, request a quote, or book a consultation. We respond with clear next steps."
+        description="Request a quote or book a consultation — we respond with clear next steps. No online self-booking; we confirm scope and timing by email."
       />
       <Container className="grid gap-16 py-16 lg:grid-cols-2">
-        <div>
-          <h2 className="font-display text-2xl text-fg">Send a message</h2>
+        <div id="consult">
+          <h2 className="font-display text-2xl text-fg">Book a consultation</h2>
+          <p className="mt-2 text-sm text-fg-muted">
+            Tell us about your project. We will reply by email to arrange a focused conversation.
+          </p>
           <div className="mt-6">
             <ContactForm />
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button href="/book" variant="secondary">
-              Book Consultation
-            </Button>
             <Button href={`mailto:${CONTACT_EMAIL}`} external variant="ghost">
               {CONTACT_EMAIL}
             </Button>
             <WhatsAppButton label={CONTACT_WHATSAPP_DISPLAY} />
           </div>
         </div>
-        <div>
+        <div id="quote">
           <h2 className="font-display text-2xl text-fg">Request a quote</h2>
           <div className="mt-6">
             <QuoteForm defaultService={service} />

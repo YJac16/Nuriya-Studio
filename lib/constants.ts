@@ -10,10 +10,17 @@ export const LOGO_MARK = "/images/nuriya-logo-no-background.png";
 /** Full lockup — mark + Nūriya + STUDIOS (transparent edges) */
 export const LOGO_LOCKUP = "/images/nuriya-logo-and-name-no-background.png";
 
+export const SITE_URL = "https://nuriyastudios.com";
+
 export const CONTACT_EMAIL = "yaseenjacobs97@gmail.com";
 /** Digits only, country code, no + — used for wa.me links */
 export const CONTACT_WHATSAPP_NUMBER = "27823277446";
 export const CONTACT_WHATSAPP_DISPLAY = "+27 82 327 7446";
+
+/** Primary sitewide conversion path — quote request form on /contact */
+export const CTA_QUOTE = { href: "/contact#quote", label: "Request a quote" } as const;
+/** Secondary — general enquiry / consultation request (no self-serve calendar) */
+export const CTA_CONSULT = { href: "/contact", label: "Book a consultation" } as const;
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
@@ -37,13 +44,20 @@ export const FOOTER_LINKS = {
   ],
   connect: [
     { href: "/contact", label: "Contact" },
-    { href: "/book", label: "Book Consultation" },
+    { href: "/contact#quote", label: "Request a quote" },
     { href: "/resources", label: "Resources" },
   ],
 } as const;
 
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  if (configured && !configured.includes(".up.railway.app")) {
+    return configured;
+  }
+  if (process.env.NODE_ENV === "production") {
+    return SITE_URL;
+  }
+  return configured || "http://localhost:3000";
 }
 
 export function getWhatsAppUrl(): string | null {
