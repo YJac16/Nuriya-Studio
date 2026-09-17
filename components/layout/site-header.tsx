@@ -16,6 +16,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -53,14 +54,15 @@ export function SiteHeader() {
     };
   }, []);
 
-  const solid = !isHome || scrolled;
+  const solid = !isHome || scrolled || mobileNavOpen;
 
   return (
     <header
       ref={headerRef}
       id="site-header"
       className={cn(
-        "sticky top-0 z-50 transition-colors duration-300",
+        "sticky top-0 transition-colors duration-300",
+        mobileNavOpen ? "z-[110]" : "z-50",
         solid
           ? "border-b border-border bg-bg/95 backdrop-blur-sm"
           : "border-b border-transparent bg-transparent",
@@ -97,7 +99,7 @@ export function SiteHeader() {
           <Button href={CTA_QUOTE.href} className="hidden sm:inline-flex" variant="primary">
             Request quote
           </Button>
-          <MobileNav />
+          <MobileNav onOpenChange={setMobileNavOpen} />
         </div>
       </Container>
     </header>
