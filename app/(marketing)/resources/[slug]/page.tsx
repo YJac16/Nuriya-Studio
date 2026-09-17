@@ -45,8 +45,8 @@ export default async function ResourceDetailPage({ params }: Props) {
           <div className="space-y-4 text-base leading-relaxed text-fg-muted">
             <p>{resource.summary}</p>
             <p>
-              Prefer a working session? Book a consultation and we will apply this
-              checklist directly to your project.
+              Prefer a working session? Get in touch and we will apply this checklist directly
+              to your project.
             </p>
           </div>
         )}
@@ -58,7 +58,7 @@ export default async function ResourceDetailPage({ params }: Props) {
         <div className="flex flex-wrap gap-3 border-t border-border pt-8">
           <Button href="/contact#quote">Request a quote</Button>
           <Button href="/contact" variant="secondary">
-            Book a consultation
+            Get in touch
           </Button>
         </div>
       </Container>

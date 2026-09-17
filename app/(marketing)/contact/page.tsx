@@ -21,16 +21,17 @@ export default async function ContactPage({ searchParams }: Props) {
     <>
       <PageIntro
         title="Contact"
-        description="Request a quote or book a consultation — we respond with clear next steps. No online self-booking; we confirm scope and timing by email."
+        description="Request a quote or get in touch — we respond with clear next steps. We confirm scope and timing by email or WhatsApp."
       />
       <Container className="pb-4 pt-2">
         <p className="text-sm text-fg-muted">{STUDIO_LOCATION_DETAIL}</p>
       </Container>
       <Container className="grid gap-16 py-16 lg:grid-cols-2">
-        <div id="consult">
-          <h2 className="font-display text-2xl text-fg">Book a consultation</h2>
+        <div id="contact-form">
+          <h2 className="font-display text-2xl text-fg">Get in touch</h2>
           <p className="mt-2 text-sm text-fg-muted">
-            Tell us about your project. We will reply by email to arrange a focused conversation.
+            Tell us about your project. We will reply by email or WhatsApp to confirm scope and
+            timing.
           </p>
           <div className="mt-6">
             <ContactForm />

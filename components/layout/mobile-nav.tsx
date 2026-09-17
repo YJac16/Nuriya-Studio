@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { CTA_CONSULT, CTA_QUOTE, NAV_LINKS } from "@/lib/constants";
+import { CTA_CONTACT, CTA_QUOTE, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -188,8 +188,8 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
                     <Button href={CTA_QUOTE.href} className="w-full">
                       {CTA_QUOTE.label}
                     </Button>
-                    <Button href={CTA_CONSULT.href} variant="secondary" className="w-full">
-                      {CTA_CONSULT.label}
+                    <Button href={CTA_CONTACT.href} variant="secondary" className="w-full">
+                      {CTA_CONTACT.label}
                     </Button>
                   </div>
                 </div>

@@ -22,7 +22,7 @@ export default function ServicesPage() {
       </Container>
       <CtaBand
         title="Not sure which package fits?"
-        description="Request a quote or book a consultation — we will recommend the leanest path to launch."
+        description="Request a quote or get in touch — we will recommend the leanest path to launch."
       />
     </>
   );

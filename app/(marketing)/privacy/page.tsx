@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <section className="space-y-3">
           <h2 className="font-display text-2xl text-fg">What we collect</h2>
           <p>
-            When you contact us, request a quote, book a consultation, or join a product
+            When you contact us, request a quote, or join a product
             waitlist, we collect the details you submit — typically name, email, phone,
             company, and message content.
           </p>
