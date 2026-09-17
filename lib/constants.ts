@@ -25,8 +25,8 @@ export const CONTACT_WHATSAPP_DISPLAY = "+27 82 327 7446";
 
 /** Primary sitewide conversion path — quote request form on /contact */
 export const CTA_QUOTE = { href: "/contact#quote", label: "Request a quote" } as const;
-/** Secondary — general enquiry / consultation request (no self-serve calendar) */
-export const CTA_CONSULT = { href: "/contact", label: "Book a consultation" } as const;
+/** Secondary — general enquiry (no self-serve calendar) */
+export const CTA_CONTACT = { href: "/contact", label: "Get in touch" } as const;
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },

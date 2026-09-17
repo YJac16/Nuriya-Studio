@@ -165,7 +165,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
           <div className="flex flex-wrap gap-3 border-t border-border pt-8">
             <Button href="/contact#quote">Request a quote</Button>
             <Button href="/contact" variant="secondary">
-              Book a consultation
+              Get in touch
             </Button>
             <WhatsAppButton />
           </div>

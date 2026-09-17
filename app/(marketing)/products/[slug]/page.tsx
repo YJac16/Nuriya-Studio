@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: Props) {
               Request custom build
             </Button>
             <Button href="/contact" variant="ghost">
-              Book a consultation
+              Get in touch
             </Button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CTA_CONSULT, CTA_QUOTE, LOGO_LOCKUP, LOGO_MARK, SITE_NAME } from "@/lib/constants";
+import { CTA_CONTACT, CTA_QUOTE, LOGO_LOCKUP, LOGO_MARK, SITE_NAME } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
@@ -39,8 +39,8 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Button href={CTA_QUOTE.href}>{CTA_QUOTE.label}</Button>
-            <Button href={CTA_CONSULT.href} variant="secondary">
-              {CTA_CONSULT.label}
+            <Button href={CTA_CONTACT.href} variant="secondary">
+              {CTA_CONTACT.label}
             </Button>
             <Button href="/portfolio" variant="ghost">
               View work

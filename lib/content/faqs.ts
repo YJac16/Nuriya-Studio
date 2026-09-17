@@ -20,8 +20,8 @@ export const faqs = [
       "Yes. Portals, dashboards, CRMs, fleet tools, booking engines, AI integrations, and internal systems are part of the core offer.",
   },
   {
-    question: "How do quotes and consultations work?",
+    question: "How do quotes and getting started work?",
     answer:
-      "Request a quote or book a consultation via our contact page. We confirm scope, timeline, and investment before any build starts.",
+      "Request a quote or get in touch via our contact page. We confirm scope, timeline, and investment before any build starts.",
   },
 ] as const;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CTA_QUOTE } from "@/lib/constants";
+import { CTA_CONTACT, CTA_QUOTE } from "@/lib/constants";
 import type { CaseStudy } from "@/lib/content/case-studies";
 import { getCaseStudyImages } from "@/lib/content/case-studies";
 import { Button } from "@/components/ui/button";
@@ -96,8 +96,8 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
 
       <div className="flex flex-wrap gap-3 border-t border-border pt-8">
         <Button href={CTA_QUOTE.href}>Similar project? Request a quote</Button>
-        <Button href="/contact" variant="secondary">
-          Book a consultation
+        <Button href={CTA_CONTACT.href} variant="secondary">
+          {CTA_CONTACT.label}
         </Button>
         <WhatsAppButton />
         <Link
