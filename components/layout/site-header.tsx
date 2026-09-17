@@ -31,26 +31,21 @@ export function SiteHeader() {
     if (!header) return;
 
     const syncHeaderHeight = () => {
+      // Use offsetHeight — stable layout height, unaffected by scroll/sticky breakage.
       document.documentElement.style.setProperty(
         "--site-header-height",
-        `${header.getBoundingClientRect().height}px`,
+        `${header.offsetHeight}px`,
       );
     };
 
     syncHeaderHeight();
     const observer = new ResizeObserver(syncHeaderHeight);
     observer.observe(header);
-    window.addEventListener("scroll", syncHeaderHeight, { passive: true });
     window.addEventListener("resize", syncHeaderHeight);
-    window.visualViewport?.addEventListener("resize", syncHeaderHeight);
-    window.visualViewport?.addEventListener("scroll", syncHeaderHeight);
 
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", syncHeaderHeight);
       window.removeEventListener("resize", syncHeaderHeight);
-      window.visualViewport?.removeEventListener("resize", syncHeaderHeight);
-      window.visualViewport?.removeEventListener("scroll", syncHeaderHeight);
     };
   }, []);
 
@@ -61,11 +56,15 @@ export function SiteHeader() {
       ref={headerRef}
       id="site-header"
       className={cn(
-        "sticky top-0 transition-colors duration-300",
-        mobileNavOpen ? "z-[110]" : "z-50",
-        solid
-          ? "border-b border-border bg-bg/95 backdrop-blur-sm"
-          : "border-b border-transparent bg-transparent",
+        "top-0 transition-colors duration-300",
+        mobileNavOpen
+          ? "fixed inset-x-0 z-[110] border-b border-border bg-bg"
+          : cn(
+              "sticky z-50",
+              solid
+                ? "border-b border-border bg-bg/95 backdrop-blur-sm"
+                : "border-b border-transparent bg-transparent",
+            ),
       )}
     >
       <Container className="flex h-[4.25rem] items-center justify-between gap-4">

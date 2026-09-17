@@ -8,11 +8,10 @@ import { CTA_CONSULT, CTA_QUOTE, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-function measureHeaderBottom() {
-  const header = document.getElementById("site-header");
-  if (!header) return null;
-  return Math.ceil(header.getBoundingClientRect().bottom);
-}
+/** Viewport-locked offsets — never derive from getBoundingClientRect while scroll-locked. */
+const PANEL_TOP = "var(--site-header-height, 4.25rem)";
+const PANEL_MAX_HEIGHT =
+  "min(70vh, calc(100dvh - var(--site-header-height, 4.25rem)))";
 
 function CloseIcon() {
   return (
@@ -47,11 +46,10 @@ type MobileNavProps = {
 export function MobileNav({ onOpenChange }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [headerOffset, setHeaderOffset] = useState<number | null>(null);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const panelCloseRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+  const scrollLockY = useRef(0);
 
   const setOpenState = useCallback(
     (value: boolean) => {
@@ -60,13 +58,6 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
     },
     [onOpenChange],
   );
-
-  const syncHeaderOffset = useCallback(() => {
-    const bottom = measureHeaderBottom();
-    if (bottom !== null) {
-      setHeaderOffset(bottom);
-    }
-  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -79,47 +70,18 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
   useEffect(() => {
     if (!open) return;
 
-    syncHeaderOffset();
-    const frame = window.requestAnimationFrame(syncHeaderOffset);
-
-    const header = document.getElementById("site-header");
-    const observer = header ? new ResizeObserver(syncHeaderOffset) : null;
-    if (header && observer) {
-      observer.observe(header);
-    }
-
-    window.addEventListener("scroll", syncHeaderOffset, { passive: true });
-    window.addEventListener("resize", syncHeaderOffset);
-    window.visualViewport?.addEventListener("resize", syncHeaderOffset);
-    window.visualViewport?.addEventListener("scroll", syncHeaderOffset);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      observer?.disconnect();
-      window.removeEventListener("scroll", syncHeaderOffset);
-      window.removeEventListener("resize", syncHeaderOffset);
-      window.visualViewport?.removeEventListener("resize", syncHeaderOffset);
-      window.visualViewport?.removeEventListener("scroll", syncHeaderOffset);
-    };
-  }, [open, syncHeaderOffset]);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const html = document.documentElement;
-    const { body } = document;
-    const previousHtmlOverflow = html.style.overflow;
-    const previousBodyOverflow = body.style.overflow;
-    const previousBodyTouchAction = body.style.touchAction;
+    scrollLockY.current = window.scrollY;
+    const { body, documentElement: html } = document;
 
     html.style.overflow = "hidden";
     body.style.overflow = "hidden";
     body.style.touchAction = "none";
 
     return () => {
-      html.style.overflow = previousHtmlOverflow;
-      body.style.overflow = previousBodyOverflow;
-      body.style.touchAction = previousBodyTouchAction;
+      html.style.overflow = "";
+      body.style.overflow = "";
+      body.style.touchAction = "";
+      window.scrollTo(0, scrollLockY.current);
     };
   }, [open]);
 
@@ -129,9 +91,9 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
   }, [setOpenState]);
 
   const openMenu = useCallback(() => {
-    syncHeaderOffset();
+    scrollLockY.current = window.scrollY;
     setOpenState(true);
-  }, [setOpenState, syncHeaderOffset]);
+  }, [setOpenState]);
 
   useEffect(() => {
     if (!open) return;
@@ -145,16 +107,6 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, closeMenu]);
-
-  const panelTop =
-    headerOffset !== null
-      ? `${headerOffset}px`
-      : "var(--site-header-height, 4.25rem)";
-
-  const panelMaxHeight =
-    headerOffset !== null
-      ? `min(70vh, calc(100dvh - ${headerOffset}px))`
-      : "min(70vh, calc(100dvh - var(--site-header-height, 4.25rem)))";
 
   return (
     <div className="md:hidden">
@@ -179,7 +131,7 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
                   type="button"
                   aria-label="Close menu"
                   className="fixed inset-x-0 bottom-0 z-[90] bg-fg/20 md:hidden"
-                  style={{ top: panelTop }}
+                  style={{ top: PANEL_TOP }}
                   onClick={closeMenu}
                 />
               ) : null}
@@ -195,7 +147,7 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
                     ? "visible translate-y-0 opacity-100"
                     : "invisible pointer-events-none -translate-y-1 opacity-0",
                 )}
-                style={{ top: panelTop, maxHeight: panelMaxHeight }}
+                style={{ top: PANEL_TOP, maxHeight: PANEL_MAX_HEIGHT }}
                 aria-hidden={!open}
               >
                 <div className="flex shrink-0 items-center justify-between border-b border-border px-3 py-1.5">
@@ -203,7 +155,6 @@ export function MobileNav({ onOpenChange }: MobileNavProps) {
                     Menu
                   </span>
                   <button
-                    ref={panelCloseRef}
                     type="button"
                     aria-label="Close menu"
                     onClick={closeMenu}
