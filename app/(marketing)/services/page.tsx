@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services" },
   title: "Services",
   description:
     "Landing pages, business websites, booking systems, custom software, and enterprise solutions from Nūriya Studios.",

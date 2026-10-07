@@ -8,6 +8,7 @@ import { LOGO_MARK, SITE_NAME } from "@/lib/constants";
 import { urlForImage } from "@/lib/sanity/image";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/brands" },
   title: "Our Brands",
   description: `${SITE_NAME}, Athariq, and Little Light — the brands in our group.`,
 };

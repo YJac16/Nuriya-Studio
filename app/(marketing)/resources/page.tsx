@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { getResources } from "@/lib/content/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources",
   description: "Guides, checklists, and practical resources from Nūriya Studios.",
 };

@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { caseStudies } from "@/lib/content/case-studies";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/portfolio" },
   title: "Portfolio",
   description: "Selected work and case studies from Nūriya Studios.",
 };

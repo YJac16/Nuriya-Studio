@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const solution = getSolutionBySlug(slug);
   if (!solution) return {};
   return {
+    alternates: { canonical: `/solutions/${slug}` },
     title: `${solution.name} Solutions`,
     description: solution.summary,
   };
