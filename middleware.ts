@@ -6,8 +6,9 @@ export function middleware(request: NextRequest) {
 
   if (host === "www.nuriyastudios.com") {
     const url = request.nextUrl.clone();
-    url.protocol = "https";
-    url.host = "nuriyastudios.com";
+    url.protocol = "https:";
+    url.hostname = "nuriyastudios.com";
+    url.port = "";
     return NextResponse.redirect(url, 308);
   }
 
