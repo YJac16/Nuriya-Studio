@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resource = await getResource(slug);
   if (!resource) return {};
   return {
+    alternates: { canonical: `/resources/${slug}` },
     title: resource.title,
     description: resource.summary || resource.title,
   };

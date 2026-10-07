@@ -5,6 +5,7 @@ import { CtaBand } from "@/components/marketing/cta-band";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/solutions" },
   title: "Solutions",
   description:
     "Industry solutions for SMEs, transport, medical, hospitality, trades, professional services, and startups.",

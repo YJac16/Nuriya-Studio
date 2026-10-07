@@ -6,6 +6,7 @@ import { getPosts } from "@/lib/content/data";
 import { isSanityConfigured } from "@/sanity/env";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog",
   description: "Insights from Nūriya Studios on software, websites, and automation.",
 };

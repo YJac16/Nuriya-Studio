@@ -11,6 +11,7 @@ import { getTeamMembers } from "@/lib/content/data";
 import { urlForImage } from "@/lib/sanity/image";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "Nūriya Studios is a software studio building digital products that help businesses grow.",

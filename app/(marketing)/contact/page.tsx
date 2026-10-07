@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Contact Nūriya Studios to request a quote or start a project.",
 };
